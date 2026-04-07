@@ -1,270 +1,302 @@
-'use client'
-
-import { useEffect } from 'react'
+import Image from 'next/image'
 import { Archivo, MuseoModerno } from 'next/font/google'
+import { MotionLayer } from './components/motion-layer'
 
 const archivo = Archivo({ subsets: ['latin'], weight: ['400', '500', '600'] })
 const museo = MuseoModerno({ subsets: ['latin'], weight: ['600', '700', '800'] })
 
+const services = [
+  {
+    title: 'Creative Content',
+    eyebrow: 'Narrativa + Identidad',
+    desc: 'Diseñamos sistemas creativos que ordenan la comunicación, elevan la percepción de marca y sostienen la ejecución en el tiempo.',
+    bullets: [
+      'Branding y sistema visual',
+      'Contenido audiovisual y campañas',
+      'Comunicación interna con criterio editorial',
+      'Diseño continuo para equipos en movimiento',
+    ],
+  },
+  {
+    title: 'Software Studio',
+    eyebrow: 'Producto + Operación',
+    desc: 'Construimos productos y plataformas que mejoran procesos, experiencia y capacidad de crecimiento sin sumar complejidad innecesaria.',
+    bullets: [
+      'Plataformas y productos SaaS',
+      'Sitios web y landings de alto impacto',
+      'Automatización y herramientas internas',
+      'Soluciones a medida con foco de negocio',
+    ],
+  },
+]
+
+const highlights = [
+  'Integramos IA en flujos creativos y operativos con criterio real de negocio',
+  'Diseñamos soluciones donde automatización, contenido y producto trabajan juntos',
+  'Usamos IA para acelerar procesos sin perder control, calidad ni identidad de marca',
+]
+
+const stats = [
+  { value: '2', label: 'unidades integradas' },
+  { value: '1', label: 'criterio de producto' },
+  { value: '∞', label: 'iteración y mejora' },
+]
+
 export default function KaikWebsite() {
-  const services = [
-    {
-      title: 'Creative Content',
-      desc: 'Servicios creativos que potencian la comunicación y ordenan la gestión, funcionando como un equipo externo que aporta estrategia, ejecución y continuidad.',
-      bullets: [
-        'Branding y sistema visual',
-        'Contenido audiovisual',
-        'Campañas y comunicación interna',
-        'Diseño y creatividad continua',
-      ],
-    },
-    {
-      title: 'Software Studio',
-      desc: 'Plataformas digitales, productos SaaS y desarrollo a medida para optimizar procesos y comunicación.',
-      bullets: [
-        'Desarrollo de plataformas',
-        'Productos digitales',
-        'Sitios web y landings',
-        'Soluciones a medida',
-      ],
-    },
-  ]
-
-  useEffect(() => {
-    const cursor = document.getElementById('cursor-halo')
-
-    const move = (e: MouseEvent) => {
-      if (!cursor) return
-      cursor.style.transform = `translate(${e.clientX - 90}px, ${e.clientY - 90}px)`
-    }
-
-    const reveals = document.querySelectorAll('.reveal')
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in')
-            io.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.15 }
-    )
-
-    reveals.forEach((el) => io.observe(el))
-    window.addEventListener('mousemove', move)
-
-    return () => {
-      window.removeEventListener('mousemove', move)
-      io.disconnect()
-    }
-  }, [])
-
   return (
-    <>
-      <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
+    <main className={`min-h-screen overflow-x-hidden text-white ${archivo.className}`}>
+      <MotionLayer />
 
-        ::selection {
-          background: #1016f8;
-          color: white;
-        }
+      <section className="relative isolate overflow-hidden border-b border-white/10">
+        <div className="hero-orb absolute left-[8%] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.3),transparent_70%)] blur-3xl" />
+        <div className="hero-orb hero-orb-delay absolute right-[8%] top-0 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_68%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),transparent_38%,rgba(0,55,255,0.12)_100%)]" />
 
-        .reveal {
-          opacity: 0;
-          transform: translateY(24px);
-          transition: opacity 0.65s ease, transform 0.65s ease;
-        }
+        <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-8 md:pb-24 md:pt-10">
+          <header className="reveal flex items-center justify-between">
+            <Image src="/logo-kaik.svg" alt="KAIK" width={104} height={36} className="h-8 w-auto md:h-9" priority />
+            <nav className="hidden gap-8 text-sm text-white/68 md:flex">
+              <a className="transition-colors duration-300 hover:text-white" href="#services">
+                Servicios
+              </a>
+              <a className="transition-colors duration-300 hover:text-white" href="#approach">
+                Enfoque
+              </a>
+              <a className="transition-colors duration-300 hover:text-white" href="#contact">
+                Contacto
+              </a>
+            </nav>
+          </header>
 
-        .reveal.in {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .reveal-delay-1 {
-          transition-delay: 0.1s;
-        }
-
-        .reveal-delay-2 {
-          transition-delay: 0.2s;
-        }
-
-        .reveal-delay-3 {
-          transition-delay: 0.3s;
-        }
-
-        .btn-primary {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .btn-primary::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: left 0.6s ease;
-        }
-
-        .btn-primary:hover::before {
-          left: 100%;
-        }
-      `}</style>
-
-      <div className={`min-h-screen bg-black text-white ${archivo.className}`}>
-        <div
-          id="cursor-halo"
-          className="pointer-events-none fixed z-50 h-[180px] w-[180px] rounded-full bg-[radial-gradient(circle,rgba(16,22,248,0.22),transparent_70%)] blur-xl transition-transform duration-100"
-        />
-
-        <section className="relative overflow-hidden border-b border-white/10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,22,248,0.35),transparent_30%),radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_25%)]" />
-
-          <div className="relative mx-auto max-w-6xl px-6 py-10">
-            <header className="flex items-center justify-between">
-              <img src="/logo-kaik.svg" alt="KAIK" className="h-8 w-auto" />
-              <nav className="hidden gap-8 text-sm text-white/70 md:flex">
-                <a href="#services" className="hover:text-white">Servicios</a>
-                <a href="#contact" className="hover:text-white">Contacto</a>
-              </nav>
-            </header>
-
-            <div className="py-20 md:py-28">
-              <div className="reveal mb-4 inline-block border border-[#1016f8] px-4 py-2 text-xs tracking-[0.25em] text-[#1016f8]">
-                CREATIVE + SOFTWARE SOLUTIONS
+          <div className="grid gap-14 py-18 md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] md:items-end md:py-24">
+            <div>
+              <div className="reveal section-kicker">
+                Creative + Software solutions
               </div>
 
-              <h1 className={`reveal reveal-delay-1 max-w-3xl text-5xl font-bold leading-[0.95] md:text-7xl ${museo.className}`}>
-                <span className="block whitespace-nowrap">
-                  We build what <span className="text-[#1016f8]">connects</span>.
-                </span>
-                <span className="block mt-2">Let’s create.</span>
+              <div className="reveal-line reveal-delay-1 mt-6 h-px w-28 bg-[linear-gradient(90deg,#0037FF,rgba(0,55,255,0.08))]" />
+
+              <h1 className={`reveal reveal-delay-1 mt-8 max-w-4xl text-5xl font-bold leading-[0.92] tracking-[-0.04em] md:text-7xl lg:text-[5.7rem] ${museo.className}`}>
+                <span className="block">We build what</span>
+                <span className="text-gradient block">connects.</span>
+                <span className="mt-2 block text-white">Let&apos;s create.</span>
               </h1>
 
-              <p className="reveal reveal-delay-2 mt-6 max-w-xl text-base leading-7 text-white/70 md:text-lg">
-                KAIK combina estrategia, creatividad y tecnología para ayudar a las empresas a conectar mejor con sus equipos, clientes y negocios.
+              <p className="reveal reveal-delay-2 mt-7 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+                KAIK combina estrategia, creatividad y tecnología para construir marcas, productos y experiencias que conectan mejor con equipos, clientes y oportunidades reales.
               </p>
 
-              <div className="reveal reveal-delay-3 mt-8 flex gap-4">
+              <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-4">
                 <a
                   href="#contact"
-                  className="btn-primary rounded-xl bg-[#1016f8] px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b20ff] hover:shadow-lg hover:shadow-[#1016f8]/20"
+                  className="button-shine ambient-pulse rounded-full bg-[#0037FF] px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1B4FFF] hover:shadow-[0_18px_40px_rgba(0,55,255,0.28)]"
                 >
                   Hablemos
                 </a>
                 <a
                   href="#services"
-                  className="rounded-xl border border-white/15 px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.04]"
+                  className="rounded-full border border-white/14 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-white/[0.06]"
                 >
                   Ver servicios
                 </a>
               </div>
+
+              <div className="mt-12 grid gap-4 md:max-w-2xl md:grid-cols-3">
+                {stats.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className={`glass-card reveal ${index === 0 ? 'reveal-delay-1' : index === 1 ? 'reveal-delay-2' : 'reveal-delay-3'} rounded-2xl px-5 py-5`}
+                    data-spotlight
+                  >
+                    <div className={`text-3xl font-semibold tracking-[-0.04em] ${museo.className}`}>{item.value}</div>
+                    <div className="mt-2 text-sm text-white/65">{item.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
 
-        <section id="services" className="mx-auto max-w-6xl px-6 py-20">
-          <div className="max-w-2xl reveal">
-            <h2 className={`text-3xl font-semibold md:text-5xl ${museo.className}`}>
-              Dos unidades, una misma lógica de valor.
-            </h2>
-            <p className="mt-4 text-white/70">
-              Integramos contenido creativo y desarrollo digital para construir soluciones completas, coherentes y escalables.
-            </p>
-          </div>
+            <div className="reveal reveal-zoom reveal-delay-2">
+              <div className="glass-card floating-panel rounded-[2rem] p-6 md:p-7" data-spotlight>
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/48">
+                  <span>AI-powered solutions</span>
+                  <span>01</span>
+                </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {services.map((item, index) => (
-              <div
-                key={item.title}
-                className={`reveal ${index === 0 ? 'reveal-delay-1' : 'reveal-delay-2'} rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/30 ${index === 1 ? 'bg-[#1016f8] text-white hover:bg-[#1b20ff]' : 'border border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.05]'}`}
-              >
-                <h3 className="text-2xl font-semibold">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-white/80">{item.desc}</p>
-
-                <div className="mt-6 grid gap-2">
-                  {item.bullets.map((b) => (
-                    <div key={b} className="text-sm text-white/70">
-                      • {b}
+                <div className="mt-8 grid gap-4">
+                  {highlights.map((item, index) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
+                    >
+                  <div className="text-xs uppercase tracking-[0.24em] text-[#7F9AFF]">
+                        0{index + 1}
+                      </div>
+                      <p className="mt-2 text-sm leading-7 text-white/78">{item}</p>
                     </div>
                   ))}
                 </div>
+
+                <div className="mt-8 rounded-2xl border border-[#0037FF]/30 bg-[linear-gradient(135deg,rgba(0,55,255,0.24),rgba(255,255,255,0.03))] p-5">
+                  <div className="text-xs uppercase tracking-[0.24em] text-white/52">IA aplicada</div>
+                  <p className="mt-3 max-w-sm text-sm leading-7 text-white/78">
+                    Incorporamos inteligencia artificial en experiencias, procesos y herramientas para crear soluciones más ágiles, escalables y útiles para cada cliente.
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="border-y border-white/10 bg-white/[0.02]">
-          <div className="mx-auto max-w-6xl px-6 py-20 reveal">
-            <h2 className={`max-w-3xl text-3xl font-semibold md:text-5xl ${museo.className}`}>
-              Creamos soluciones que conectan ideas, equipos y negocio.
+      <section id="services" className="relative mx-auto max-w-6xl px-6 py-22 md:py-28">
+        <div className="reveal section-kicker">Servicios</div>
+        <div className="mt-6 max-w-3xl">
+          <h2 className={`reveal reveal-delay-1 text-3xl font-semibold tracking-[-0.04em] md:text-5xl ${museo.className}`}>
+            Dos unidades, una misma lógica de valor.
+          </h2>
+          <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-base leading-8 text-white/68">
+            Integramos contenido creativo y desarrollo digital para construir sistemas coherentes, escalables y mucho más interesantes visualmente.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {services.map((item, index) => (
+            <article
+              key={item.title}
+              data-spotlight
+              className={`glass-card reveal ${index === 0 ? 'reveal-delay-1' : 'reveal-delay-2'} group rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 md:p-9`}
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.24em] text-[#7F9AFF]">{item.eyebrow}</div>
+                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white md:text-[2rem]">
+                    {item.title}
+                  </h3>
+                </div>
+                <div className="rounded-full border border-white/12 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/46 transition-colors duration-300 group-hover:border-[#365cff]/40 group-hover:text-white/72">
+                  0{index + 1}
+                </div>
+              </div>
+
+              <p className="mt-6 max-w-lg text-sm leading-8 text-white/72 md:text-[0.98rem]">
+                {item.desc}
+              </p>
+
+                <div className="mt-8 h-px w-full bg-[linear-gradient(90deg,rgba(0,55,255,0.8),rgba(255,255,255,0.08))]" />
+
+              <div className="mt-8 grid gap-3">
+                {item.bullets.map((bullet) => (
+                  <div
+                    key={bullet}
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70 transition-colors duration-300 group-hover:text-white/82"
+                  >
+                    <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
+                    <span>{bullet}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="approach"
+        className="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))]"
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,55,255,0.9),transparent)]" />
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-22 md:grid-cols-[minmax(0,1.1fr)_minmax(260px,0.9fr)] md:items-center md:py-24">
+          <div>
+            <div className="reveal section-kicker">Enfoque</div>
+            <h2 className={`reveal reveal-delay-1 mt-6 max-w-3xl text-3xl font-semibold tracking-[-0.04em] md:text-5xl ${museo.className}`}>
+              Creamos experiencias que conectan ideas, equipos y negocio.
             </h2>
-            <p className="mt-6 max-w-2xl text-white/70">
-              No trabajamos piezas aisladas. Diseñamos sistemas de comunicación y herramientas digitales que permiten a las empresas avanzar con claridad, consistencia y foco.
+            <p className="reveal reveal-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/68">
+              No trabajamos piezas aisladas. Diseñamos sistemas de comunicación y herramientas digitales que hacen que una marca se vea mejor, opere mejor y evolucione con más claridad.
             </p>
           </div>
-        </section>
 
-        <section id="contact" className="mx-auto max-w-6xl px-6 py-20">
-          <div className="reveal rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(16,22,248,0.2),rgba(255,255,255,0.05))] p-10 transition-all duration-300 hover:border-white/20 hover:shadow-2xl hover:shadow-[#1016f8]/10">
-            <h2 className={`text-3xl font-semibold md:text-5xl ${museo.className}`}>
-              Let’s create what connects.
-            </h2>
-            <p className="mt-4 text-white/70">
-              Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-4">
-              <a
-                href="mailto:juanguillermo@kaik.cl"
-                className="rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-lg hover:shadow-white/10"
-              >
-                hola@kaik.cl
-              </a>
-              <a
-                href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl border border-white/15 px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.04]"
-              >
-                Agenda una reunión
-              </a>
+          <div className="reveal reveal-delay-3">
+            <div className="glass-card rounded-[2rem] p-6 md:p-7" data-spotlight>
+              <div className="text-xs uppercase tracking-[0.24em] text-white/48">Principios</div>
+              <div className="mt-6 grid gap-4">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                  <div className="text-sm font-medium text-white">Claridad visual</div>
+                  <p className="mt-2 text-sm leading-7 text-white/66">Movimiento y estética al servicio del mensaje, no del adorno.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                  <div className="text-sm font-medium text-white">Ritmo narrativo</div>
+                  <p className="mt-2 text-sm leading-7 text-white/66">Cada bloque entra con intención para sostener atención y jerarquía.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                  <div className="text-sm font-medium text-white">Tecnología sobria</div>
+                  <p className="mt-2 text-sm leading-7 text-white/66">Interactividad ligera, accesible y alineada con performance.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer className="border-t border-white/10 px-6 py-10">
-          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="text-center text-sm text-white/50 md:text-left">
-              © 2026 KÄIK DIGITAL SOLUTIONS. Todos los derechos reservados.
-            </div>
+      <section id="contact" className="mx-auto max-w-6xl px-6 py-22 md:py-28">
+        <div
+          data-spotlight
+          className="glass-card reveal rounded-[2rem] border-[#0037FF]/24 bg-[linear-gradient(135deg,rgba(0,55,255,0.22),rgba(255,255,255,0.04))] p-8 md:p-10"
+        >
+          <div className="section-kicker">Contacto</div>
+          <h2 className={`reveal reveal-delay-1 mt-6 text-3xl font-semibold tracking-[-0.04em] md:text-5xl ${museo.className}`}>
+            Let&apos;s create what connects.
+          </h2>
+          <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-base leading-8 text-white/72">
+            Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y armemos algo realmente diferenciador.
+          </p>
 
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/company/k%C3%A4ik-digital-solutions/about/?viewAsMember=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-white/60 transition hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-5 w-5 transition group-hover:scale-110"
-                >
-                  <path d="M19 0h-14C2.239 0 1 1.239 1 3v18c0 1.761 1.239 3 3 3h14c1.761 0 3-1.239 3-3V3c0-1.761-1.239-3-3-3zM7 20H4V9h3v11zM5.5 7.732C4.672 7.732 4 7.06 4 6.232s.672-1.5 1.5-1.5S7 5.404 7 6.232s-.672 1.5-1.5 1.5zM20 20h-3v-5.604c0-1.337-.027-3.059-1.865-3.059-1.867 0-2.154 1.459-2.154 2.963V20h-3V9h2.881v1.507h.041c.401-.761 1.381-1.562 2.844-1.562 3.041 0 3.604 2.002 3.604 4.604V20z" />
-                </svg>
-                <span className="text-sm">LinkedIn</span>
-              </a>
-            </div>
+          <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
+            <a
+              href="mailto:hola@kaik.cl"
+              className="button-shine rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/92 hover:shadow-[0_20px_48px_rgba(255,255,255,0.14)]"
+            >
+              hola@kaik.cl
+            </a>
+            <a
+              href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/14 bg-white/[0.03] px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-white/[0.06]"
+            >
+              Agenda una reunión
+            </a>
           </div>
-        </footer>
-      </div>
-    </>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 px-6 py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="text-center text-sm text-white/45 md:text-left">
+            © 2026 KÄIK DIGITAL SOLUTIONS. Todos los derechos reservados.
+          </div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.linkedin.com/company/k%C3%A4ik-digital-solutions/about/?viewAsMember=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 text-white/58 transition duration-300 hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                className="h-5 w-5 shrink-0 transition duration-300 group-hover:scale-110"
+              >
+                <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.05-1.86-3.05-1.87 0-2.16 1.45-2.16 2.95v5.68H9.31V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.27ZM5.29 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.5V9h3.57v11.45ZM22 0H2C.9 0 0 .87 0 1.94v20.12C0 23.13.9 24 2 24h20c1.1 0 2-.87 2-1.94V1.94C24 .87 23.1 0 22 0Z" />
+              </svg>
+              <span className="text-sm">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
   )
 }
