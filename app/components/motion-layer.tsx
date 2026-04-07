@@ -23,7 +23,7 @@ export function MotionLayer() {
     const updateCursor = () => {
       frame = 0
       if (!cursor) return
-      cursor.style.transform = `translate3d(${pointerX - 120}px, ${pointerY - 120}px, 0)`
+      cursor.style.transform = `translate3d(${pointerX - 170}px, ${pointerY - 170}px, 0)`
     }
 
     const handlePointerMove = (event: PointerEvent) => {
@@ -97,7 +97,10 @@ export function MotionLayer() {
     <div
       id="cursor-halo"
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-50 h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(72,106,255,0.26),rgba(72,106,255,0.1)_30%,transparent_68%)] blur-3xl transition-transform duration-200"
-    />
+      className="pointer-events-none fixed left-0 top-0 z-50 h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14),rgba(0,55,255,0.24)_28%,rgba(0,55,255,0.12)_48%,transparent_72%)] mix-blend-screen blur-2xl transition-transform duration-150"
+    >
+      <div className="cursor-halo-ring" />
+      <div className="cursor-halo-core" />
+    </div>
   )
 }

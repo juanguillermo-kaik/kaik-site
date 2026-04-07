@@ -113,6 +113,25 @@ body::before {
   animation: drift 16s ease-in-out infinite;
 }
 
+.cursor-halo-core {
+  position: absolute;
+  inset: 2.75rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(0, 55, 255, 0.22) 42%, transparent 74%);
+  opacity: 0.95;
+}
+
+.cursor-halo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 0 34px rgba(0, 55, 255, 0.24),
+    inset 0 0 28px rgba(255, 255, 255, 0.05);
+  opacity: 0.9;
+}
+
 .hero-orb-delay {
   animation-delay: -7s;
 }

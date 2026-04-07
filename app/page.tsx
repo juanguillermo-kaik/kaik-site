@@ -118,7 +118,7 @@ export default function KaikWebsite() {
             <div className="reveal reveal-zoom reveal-delay-2">
               <div className="glass-card floating-panel rounded-[2rem] p-6 md:p-7" data-spotlight>
                 <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/48">
-                  <span>AI-powered solutions</span>
+                  <span>Empathy + AI - powered solutions</span>
                   <span>01</span>
                 </div>
 
