@@ -31,8 +31,8 @@ const services = [
 ]
 
 const highlights = [
-  'Integramos IA en flujos creativos y operativos con criterio real de negocio',
-  'Diseñamos soluciones donde automatización, contenido y producto trabajan juntos',
+  'Integramos creatividad, tecnología e IA en flujos de trabajo con criterio real de negocio',
+  'Diseñamos soluciones donde las ideas, la estructura y la ejecución avanzan en la misma dirección',
   'Usamos IA para acelerar procesos sin perder control, calidad ni identidad de marca',
 ]
 
@@ -48,9 +48,12 @@ export default function KaikWebsite() {
       <MotionLayer />
 
       <section className="relative isolate overflow-hidden border-b border-white/10">
-        <div className="hero-orb absolute left-[8%] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.3),transparent_70%)] blur-3xl" />
-        <div className="hero-orb hero-orb-delay absolute right-[8%] top-0 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_68%)] blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),transparent_38%,rgba(0,55,255,0.12)_100%)]" />
+        <div className="editorial-grid" />
+        <div className="brand-shape shape-quarter right-[3.5rem] top-[3rem] hidden xl:block" />
+        <div className="brand-shape shape-l right-[8.5rem] top-[12.5rem] hidden xl:block" />
+        <div className="brand-shape shape-dot right-[13.5rem] bottom-[8.5rem] hidden xl:block" />
+        <div className="brand-shape shape-slash right-[2.5rem] bottom-[-1.5rem] hidden xl:block" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_20%,transparent_82%,rgba(0,55,255,0.08))]" />
 
         <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-8 md:pb-24 md:pt-10">
           <header className="reveal flex items-center justify-between">
@@ -105,7 +108,7 @@ export default function KaikWebsite() {
                 {stats.map((item, index) => (
                   <div
                     key={item.label}
-                    className={`glass-card reveal ${index === 0 ? 'reveal-delay-1' : index === 1 ? 'reveal-delay-2' : 'reveal-delay-3'} rounded-2xl px-5 py-5`}
+                    className={`brand-panel brand-panel-dark reveal ${index === 0 ? 'reveal-delay-1' : index === 1 ? 'reveal-delay-2' : 'reveal-delay-3'} rounded-2xl px-5 py-5`}
                     data-spotlight
                   >
                     <div className={`text-3xl font-semibold tracking-[-0.04em] ${museo.className}`}>{item.value}</div>
@@ -116,31 +119,33 @@ export default function KaikWebsite() {
             </div>
 
             <div className="reveal reveal-zoom reveal-delay-2">
-              <div className="glass-card floating-panel rounded-[2rem] p-6 md:p-7" data-spotlight>
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/48">
-                  <span>Empathy + AI - powered solutions</span>
-                  <span>01</span>
-                </div>
+              <div className="brand-panel brand-panel-dark floating-panel rounded-[2rem] p-6 md:p-7" data-spotlight>
+                <div className="brand-content">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/48">
+                    <span>Empathy + AI - powered solutions</span>
+                    <span>01</span>
+                  </div>
 
-                <div className="mt-8 grid gap-4">
-                  {highlights.map((item, index) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
-                    >
-                  <div className="text-xs uppercase tracking-[0.24em] text-[#7F9AFF]">
-                        0{index + 1}
+                  <div className="mt-8 grid gap-4">
+                    {highlights.map((item, index) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                      >
+                        <div className="text-xs uppercase tracking-[0.24em] text-[#7F9AFF]">
+                          0{index + 1}
+                        </div>
+                        <p className="mt-2 text-sm leading-7 text-white/78">{item}</p>
                       </div>
-                      <p className="mt-2 text-sm leading-7 text-white/78">{item}</p>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="mt-8 rounded-2xl border border-[#0037FF]/30 bg-[linear-gradient(135deg,rgba(0,55,255,0.24),rgba(255,255,255,0.03))] p-5">
-                  <div className="text-xs uppercase tracking-[0.24em] text-white/52">IA aplicada</div>
-                  <p className="mt-3 max-w-sm text-sm leading-7 text-white/78">
-                    Incorporamos inteligencia artificial en experiencias, procesos y herramientas para crear soluciones más ágiles, escalables y útiles para cada cliente.
-                  </p>
+                  <div className="mt-8 rounded-2xl border border-[#0037FF]/30 bg-[linear-gradient(135deg,rgba(0,55,255,0.24),rgba(255,255,255,0.03))] p-5">
+                    <div className="text-xs uppercase tracking-[0.24em] text-white/52">Experiencia junto a grandes empresas</div>
+                    <p className="mt-3 max-w-sm text-sm leading-7 text-white/78">
+                      Incorporamos nuestro know-how en experiencias, procesos y herramientas para crear soluciones más ágiles, escalables y útiles para cada cliente.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -164,36 +169,38 @@ export default function KaikWebsite() {
             <article
               key={item.title}
               data-spotlight
-              className={`glass-card reveal ${index === 0 ? 'reveal-delay-1' : 'reveal-delay-2'} group rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 md:p-9`}
+              className={`brand-panel ${index === 1 ? 'brand-panel-blue text-white' : 'brand-panel-dark'} reveal ${index === 0 ? 'reveal-delay-1' : 'reveal-delay-2'} group rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20 md:p-9`}
             >
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <div className="text-xs uppercase tracking-[0.24em] text-[#7F9AFF]">{item.eyebrow}</div>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white md:text-[2rem]">
-                    {item.title}
-                  </h3>
-                </div>
-                <div className="rounded-full border border-white/12 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/46 transition-colors duration-300 group-hover:border-[#365cff]/40 group-hover:text-white/72">
-                  0{index + 1}
-                </div>
-              </div>
-
-              <p className="mt-6 max-w-lg text-sm leading-8 text-white/72 md:text-[0.98rem]">
-                {item.desc}
-              </p>
-
-                <div className="mt-8 h-px w-full bg-[linear-gradient(90deg,rgba(0,55,255,0.8),rgba(255,255,255,0.08))]" />
-
-              <div className="mt-8 grid gap-3">
-                {item.bullets.map((bullet) => (
-                  <div
-                    key={bullet}
-                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70 transition-colors duration-300 group-hover:text-white/82"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
-                    <span>{bullet}</span>
+              <div className="brand-content">
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <div className={`text-xs uppercase tracking-[0.24em] ${index === 1 ? 'text-white/72' : 'text-[#7F9AFF]'}`}>{item.eyebrow}</div>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white md:text-[2rem]">
+                      {item.title}
+                    </h3>
                   </div>
-                ))}
+                  <div className="rounded-full border border-white/12 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/60 transition-colors duration-300 group-hover:border-[#0037FF]/40 group-hover:text-white/88">
+                    0{index + 1}
+                  </div>
+                </div>
+
+                <p className="mt-6 max-w-lg text-sm leading-8 text-white/80 md:text-[0.98rem]">
+                  {item.desc}
+                </p>
+
+                <div className={`mt-8 h-px w-full ${index === 1 ? 'bg-[linear-gradient(90deg,rgba(255,255,255,0.88),rgba(255,255,255,0.08))]' : 'bg-[linear-gradient(90deg,rgba(0,55,255,0.8),rgba(255,255,255,0.08))]'}`} />
+
+                <div className="mt-8 grid gap-3">
+                  {item.bullets.map((bullet) => (
+                    <div
+                      key={bullet}
+                      className={`flex items-center gap-3 rounded-2xl border px-4 py-3 text-sm transition-colors duration-300 group-hover:text-white/92 ${index === 1 ? 'border-white/16 bg-black/18 text-white/82' : 'border-white/10 bg-white/[0.03] text-white/70'}`}
+                    >
+                      <span className={`h-2 w-2 rounded-full ${index === 1 ? 'bg-white' : 'bg-[#0037FF]'}`} />
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
@@ -205,6 +212,8 @@ export default function KaikWebsite() {
         className="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))]"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,55,255,0.9),transparent)]" />
+        <div className="brand-shape shape-dot right-[8rem] top-[7rem] hidden xl:block" />
+        <div className="brand-shape shape-dot right-[7.4rem] top-[20.8rem] hidden xl:block" />
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-22 md:grid-cols-[minmax(0,1.1fr)_minmax(260px,0.9fr)] md:items-center md:py-24">
           <div>
             <div className="reveal section-kicker">Enfoque</div>
@@ -217,20 +226,22 @@ export default function KaikWebsite() {
           </div>
 
           <div className="reveal reveal-delay-3">
-            <div className="glass-card rounded-[2rem] p-6 md:p-7" data-spotlight>
-              <div className="text-xs uppercase tracking-[0.24em] text-white/48">Principios</div>
-              <div className="mt-6 grid gap-4">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
-                  <div className="text-sm font-medium text-white">Claridad visual</div>
-                  <p className="mt-2 text-sm leading-7 text-white/66">Movimiento y estética al servicio del mensaje, no del adorno.</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
-                  <div className="text-sm font-medium text-white">Ritmo narrativo</div>
-                  <p className="mt-2 text-sm leading-7 text-white/66">Cada bloque entra con intención para sostener atención y jerarquía.</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
-                  <div className="text-sm font-medium text-white">Tecnología sobria</div>
-                  <p className="mt-2 text-sm leading-7 text-white/66">Interactividad ligera, accesible y alineada con performance.</p>
+            <div className="brand-panel brand-panel-dark rounded-[2rem] p-6 md:p-7" data-spotlight>
+              <div className="brand-content">
+                <div className="text-xs uppercase tracking-[0.24em] text-white/48">Principios</div>
+                <div className="mt-6 grid gap-4">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                    <div className="text-sm font-medium text-white">Claridad visual</div>
+                    <p className="mt-2 text-sm leading-7 text-white/66">Movimiento y estética al servicio del mensaje, no del adorno.</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                    <div className="text-sm font-medium text-white">Ritmo narrativo</div>
+                    <p className="mt-2 text-sm leading-7 text-white/66">Cada bloque entra con intención para sostener atención y jerarquía.</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+                    <div className="text-sm font-medium text-white">Tecnología sobria</div>
+                    <p className="mt-2 text-sm leading-7 text-white/66">Interactividad ligera, accesible y alineada con performance.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -241,31 +252,35 @@ export default function KaikWebsite() {
       <section id="contact" className="mx-auto max-w-6xl px-6 py-22 md:py-28">
         <div
           data-spotlight
-          className="glass-card reveal rounded-[2rem] border-[#0037FF]/24 bg-[linear-gradient(135deg,rgba(0,55,255,0.22),rgba(255,255,255,0.04))] p-8 md:p-10"
+          className="brand-panel reveal rounded-[2rem] border-[#0037FF]/24 bg-[linear-gradient(135deg,rgba(0,0,0,0.96),rgba(0,0,0,0.9))] p-8 md:p-10"
         >
-          <div className="section-kicker">Contacto</div>
-          <h2 className={`reveal reveal-delay-1 mt-6 text-3xl font-semibold tracking-[-0.04em] md:text-5xl ${museo.className}`}>
-            Let&apos;s create what connects.
-          </h2>
-          <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-base leading-8 text-white/72">
-            Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y creemos algo realmente diferenciador.
-          </p>
+          <div className="brand-shape shape-quarter right-[3rem] top-[2.75rem] hidden xl:block" />
+          <div className="brand-shape shape-l right-[6rem] bottom-[2.5rem] hidden xl:block" />
+          <div className="brand-content">
+            <div className="section-kicker">Contacto</div>
+            <h2 className={`reveal reveal-delay-1 mt-6 text-3xl font-semibold tracking-[-0.04em] md:text-5xl ${museo.className}`}>
+              Let&apos;s create what connects.
+            </h2>
+            <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-base leading-8 text-white/72 md:pr-18 lg:pr-30 xl:pr-40">
+              Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y creemos algo realmente diferenciador.
+            </p>
 
-          <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
-            <a
-              href="mailto:hola@kaik.cl"
-              className="button-shine rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/92 hover:shadow-[0_20px_48px_rgba(255,255,255,0.14)]"
-            >
-              hola@kaik.cl
-            </a>
-            <a
-              href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/14 bg-white/[0.03] px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-white/[0.06]"
-            >
-              Agenda una reunión
-            </a>
+            <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
+              <a
+                href="mailto:hola@kaik.cl"
+                className="button-shine rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/92 hover:shadow-[0_20px_48px_rgba(255,255,255,0.14)]"
+              >
+                hola@kaik.cl
+              </a>
+              <a
+                href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/14 bg-white/[0.03] px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-white/[0.06]"
+              >
+                Agenda una reunión
+              </a>
+            </div>
           </div>
         </div>
       </section>

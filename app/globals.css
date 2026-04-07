@@ -162,6 +162,92 @@ body::before {
   opacity: 1;
 }
 
+.brand-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #050505;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+}
+
+.brand-panel-blue {
+  background: linear-gradient(180deg, #0037ff 0%, #1548ff 100%);
+}
+
+.brand-panel-dark {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 28%),
+    #050505;
+}
+
+.brand-shape {
+  position: absolute;
+  color: var(--brand);
+  opacity: 0.68;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brand-shape-white {
+  color: white;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 1;
+}
+
+.shape-l {
+  width: 9.5rem;
+  height: 9.5rem;
+  border-left: 2rem solid currentColor;
+  border-bottom: 2rem solid currentColor;
+}
+
+.shape-quarter {
+  width: 9rem;
+  height: 9rem;
+  border: 2rem solid currentColor;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 9999px;
+}
+
+.shape-c {
+  width: 9.5rem;
+  height: 9.5rem;
+  border: 2rem solid currentColor;
+  border-right-color: transparent;
+  border-radius: 9999px;
+}
+
+.shape-bar {
+  width: 9.5rem;
+  height: 2rem;
+  background: currentColor;
+}
+
+.shape-dot {
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+
+.shape-slash {
+  width: 3.75rem;
+  height: 10.5rem;
+  background: currentColor;
+  clip-path: polygon(24% 0, 100% 0, 76% 100%, 0 100%);
+}
+
+.eyebrow-number {
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--brand);
+}
+
 .section-kicker {
   display: inline-flex;
   align-items: center;
@@ -214,6 +300,18 @@ body::before {
 
 .ambient-pulse {
   animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.editorial-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 108px 108px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 85%);
+  opacity: 0.22;
 }
 
 @keyframes drift {
