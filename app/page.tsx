@@ -248,7 +248,7 @@ export default function KaikWebsite() {
             Let&apos;s create what connects.
           </h2>
           <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-base leading-8 text-white/72">
-            Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y armemos algo realmente diferenciador.
+            Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y creemos algo realmente diferenciador.
           </p>
 
           <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
