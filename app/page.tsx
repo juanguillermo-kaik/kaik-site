@@ -83,7 +83,7 @@ export default function KaikWebsite() {
               </h1>
 
               <p className="reveal reveal-delay-2 mt-7 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
-                KAIK combina estrategia, creatividad y tecnología para construir marcas, productos y experiencias que conectan mejor con equipos, clientes y oportunidades reales.
+                KAIK combina estrategia, creatividad y tecnología para construir soluciones, productos y experiencias que conectan mejor a las empresas con sus equipos, clientes y oportunidades de negocio.
               </p>
 
               <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-4">
@@ -212,7 +212,7 @@ export default function KaikWebsite() {
               Creamos experiencias que conectan ideas, equipos y negocio.
             </h2>
             <p className="reveal reveal-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/68">
-              No trabajamos piezas aisladas. Diseñamos sistemas de comunicación y herramientas digitales que hacen que una marca se vea mejor, opere mejor y evolucione con más claridad.
+              No trabajamos piezas aisladas. Diseñamos sistemas y servicios de comunicación y herramientas digitales que hacen que una empresa se vea mejor, comunique mejor y opere con mayor eficiencia.
             </p>
           </div>
 

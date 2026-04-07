@@ -115,21 +115,21 @@ body::before {
 
 .cursor-halo-core {
   position: absolute;
-  inset: 2.75rem;
+  inset: 3.25rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(0, 55, 255, 0.22) 42%, transparent 74%);
-  opacity: 0.95;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), rgba(0, 55, 255, 0.14) 42%, transparent 74%);
+  opacity: 0.72;
 }
 
 .cursor-halo-ring {
   position: absolute;
   inset: 0;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 0 34px rgba(0, 55, 255, 0.24),
-    inset 0 0 28px rgba(255, 255, 255, 0.05);
-  opacity: 0.9;
+    0 0 24px rgba(0, 55, 255, 0.16),
+    inset 0 0 20px rgba(255, 255, 255, 0.03);
+  opacity: 0.62;
 }
 
 .hero-orb-delay {

@@ -97,7 +97,7 @@ export function MotionLayer() {
     <div
       id="cursor-halo"
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-50 h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14),rgba(0,55,255,0.24)_28%,rgba(0,55,255,0.12)_48%,transparent_72%)] mix-blend-screen blur-2xl transition-transform duration-150"
+      className="pointer-events-none fixed left-0 top-0 z-50 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),rgba(0,55,255,0.16)_28%,rgba(0,55,255,0.08)_48%,transparent_72%)] mix-blend-screen blur-3xl transition-transform duration-200"
     >
       <div className="cursor-halo-ring" />
       <div className="cursor-halo-core" />
