@@ -216,7 +216,7 @@ export default function KaikWebsite() {
             <span className="block text-[#0037FF]">connections.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#676d7b] md:text-lg">
-            No trabajamos piezas aisladas. Diseñamos sistemas y servicios de comunicación y herramientas digitales que hacen que una empresa se vea mejor, comunique mejor y opere con mayor eficiencia.
+            No trabajamos piezas aisladas. Diseñamos sistemas y servicios de comunicación + herramientas digitales que hacen que una empresa se vea mejor, comunique mejor y opere con mayor eficiencia.
           </p>
           <div className="relative mt-12 grid gap-6 md:grid-cols-3">
             <div className="absolute bottom-0 left-1/2 hidden h-44 w-[28rem] -translate-x-1/2 rounded-[4rem] bg-[linear-gradient(180deg,rgba(205,210,222,0.42),rgba(245,246,250,0.94))] shadow-[0_30px_60px_rgba(175,181,195,0.16)] md:block" />
