@@ -152,7 +152,7 @@ export default function KaikWebsite() {
 
           <a
             href="#services"
-            className="reveal reveal-delay-3 group absolute bottom-6 right-7 z-20 hidden items-center gap-3 rounded-full border border-white/80 bg-[rgba(255,255,255,0.78)] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 md:flex md:right-10 md:bottom-8"
+            className="group absolute bottom-6 right-7 z-20 hidden items-center gap-3 rounded-full border border-white/80 bg-[rgba(255,255,255,0.78)] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 md:flex md:right-10 md:bottom-8"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0037FF] text-white shadow-[0_10px_24px_rgba(0,55,255,0.24)] transition-transform duration-300 group-hover:translate-y-0.5">
               ↓
