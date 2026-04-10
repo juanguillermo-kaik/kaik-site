@@ -6,6 +6,7 @@ export function MotionLayer() {
   useEffect(() => {
     const root = document.documentElement
     const cursor = document.getElementById('cursor-halo')
+    const hero = document.querySelector<HTMLElement>('[data-hero-scope]')
     const hoverCards = Array.from(document.querySelectorAll<HTMLElement>('[data-spotlight]'))
     const reveals = Array.from(document.querySelectorAll<HTMLElement>('.reveal, .reveal-line'))
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -19,6 +20,7 @@ export function MotionLayer() {
     let frame = 0
     let pointerX = window.innerWidth / 2
     let pointerY = window.innerHeight / 2
+    let heroActive = false
 
     const updateCursor = () => {
       frame = 0
@@ -27,7 +29,7 @@ export function MotionLayer() {
     }
 
     const handlePointerMove = (event: PointerEvent) => {
-      if (!supportsHover) return
+      if (!supportsHover || !heroActive) return
       pointerX = event.clientX
       pointerY = event.clientY
       root.style.setProperty('--pointer-x', `${event.clientX}px`)
@@ -35,6 +37,18 @@ export function MotionLayer() {
       if (!frame) {
         frame = window.requestAnimationFrame(updateCursor)
       }
+    }
+
+    const showCursor = () => {
+      heroActive = true
+      if (!cursor) return
+      cursor.style.opacity = '1'
+    }
+
+    const hideCursor = () => {
+      heroActive = false
+      if (!cursor) return
+      cursor.style.opacity = '0'
     }
 
     const handleCardMove = (event: Event) => {
@@ -72,6 +86,8 @@ export function MotionLayer() {
 
     if (supportsHover) {
       window.addEventListener('pointermove', handlePointerMove, { passive: true })
+      hero?.addEventListener('pointerenter', showCursor)
+      hero?.addEventListener('pointerleave', hideCursor)
       hoverCards.forEach((card) => {
         card.addEventListener('pointermove', handleCardMove, { passive: true })
         card.addEventListener('pointerleave', clearCardMove)
@@ -86,6 +102,8 @@ export function MotionLayer() {
         window.cancelAnimationFrame(frame)
       }
       window.removeEventListener('pointermove', handlePointerMove)
+      hero?.removeEventListener('pointerenter', showCursor)
+      hero?.removeEventListener('pointerleave', hideCursor)
       hoverCards.forEach((card) => {
         card.removeEventListener('pointermove', handleCardMove)
         card.removeEventListener('pointerleave', clearCardMove)
@@ -97,7 +115,7 @@ export function MotionLayer() {
     <div
       id="cursor-halo"
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-50 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),rgba(0,55,255,0.16)_28%,rgba(0,55,255,0.08)_48%,transparent_72%)] mix-blend-screen blur-3xl transition-transform duration-200"
+      className="pointer-events-none fixed left-0 top-0 z-50 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),rgba(0,55,255,0.16)_28%,rgba(0,55,255,0.08)_48%,transparent_72%)] opacity-0 mix-blend-screen blur-3xl transition-[transform,opacity] duration-200"
     >
       <div className="cursor-halo-ring" />
       <div className="cursor-halo-core" />
