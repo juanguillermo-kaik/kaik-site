@@ -58,7 +58,7 @@ export default function KaikWebsite() {
           />
         </div>
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-7 pb-10 pt-6 md:px-10 md:pb-12 md:pt-6">
-          <header className="flex items-center justify-between">
+          <header className="reveal flex items-center justify-between">
             <Image
               src="/logo-kaik.svg"
               alt="KAIK"
@@ -82,7 +82,7 @@ export default function KaikWebsite() {
 
           <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-[52%_48%] md:items-center md:gap-0 md:pt-10">
             <div className="max-w-[29rem] md:pt-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#d9dce6] bg-white/55 px-4 py-2 text-xs text-[#5d6272] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
+              <div className="reveal inline-flex items-center gap-2 rounded-full border border-[#d9dce6] bg-white/55 px-4 py-2 text-xs text-[#5d6272] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
                 <span className="flex items-center gap-1">
                   <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
                   <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
@@ -90,18 +90,18 @@ export default function KaikWebsite() {
                 <span>Creative Content + Software Solutions</span>
               </div>
 
-              <h1 className={`mt-6 text-[clamp(3.9rem,8vw,6.25rem)] font-bold leading-[0.82] tracking-[-0.07em] text-[#7c808d] ${museo.className}`}>
+              <h1 className={`reveal reveal-delay-1 mt-6 text-[clamp(3.9rem,8vw,6.25rem)] font-bold leading-[0.82] tracking-[-0.07em] text-[#7c808d] ${museo.className}`}>
                 <span className="block">We build</span>
                 <span className="block">what</span>
                 <span className="block text-[#0037FF]">connects.</span>
                 <span className="mt-1 block text-[#2a2d38]">Let&apos;s create.</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-[0.98rem] leading-7 text-[#696f7d] md:text-[1.02rem]">
+              <p className="reveal reveal-delay-2 mt-5 max-w-xl text-[0.98rem] leading-7 text-[#696f7d] md:text-[1.02rem]">
                 Ayudamos a las empresas a conectar mejor con sus equipos y clientes mediante <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong> y <strong className="font-semibold text-[#2a2d38]">plataformas digitales</strong>.
               </p>
 
-              <div className="mt-6 flex items-center gap-3 text-sm font-semibold text-[#666b78]">
+              <div className="reveal reveal-delay-2 mt-6 flex items-center gap-3 text-sm font-semibold text-[#666b78]">
                 <span>Strategy</span>
                 <span>-</span>
                 <span>Creativity</span>
@@ -109,7 +109,7 @@ export default function KaikWebsite() {
                 <span>Technology</span>
               </div>
 
-              <div className="mt-7 flex flex-wrap gap-4">
+              <div className="reveal reveal-delay-3 mt-7 flex flex-wrap gap-4">
                 <a
                   href="#contact"
                   className="rounded-full bg-[#0037FF] px-7 py-3.5 text-sm font-medium text-white shadow-[0_16px_40px_rgba(0,55,255,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b4fff]"
@@ -131,7 +131,7 @@ export default function KaikWebsite() {
                   <article
                     key={card.title}
                     data-spotlight
-                    className={`glass-card flex min-h-[19.2rem] w-full max-w-[17.6rem] flex-col rounded-[2rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/85 ${index === 0 ? 'md:-translate-x-2 md:translate-y-0' : 'md:translate-x-1 md:translate-y-0'}`}
+                    className={`reveal reveal-zoom ${index === 1 ? 'reveal-delay-1' : ''} glass-card hero-float flex min-h-[19.2rem] w-full max-w-[17.6rem] flex-col rounded-[2rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/85 ${index === 0 ? 'md:-ml-2' : 'hero-float-delay md:ml-1'}`}
                   >
                     <div className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
                       <span className="flex items-center gap-1.5">
@@ -152,7 +152,7 @@ export default function KaikWebsite() {
 
           <a
             href="#services"
-            className="group absolute bottom-6 right-7 z-20 hidden items-center gap-3 rounded-full border border-white/80 bg-[rgba(255,255,255,0.78)] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 md:flex md:right-10 md:bottom-8"
+            className="reveal reveal-delay-3 group absolute bottom-6 right-7 z-20 hidden items-center gap-3 rounded-full border border-white/80 bg-[rgba(255,255,255,0.78)] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 md:flex md:right-10 md:bottom-8"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0037FF] text-white shadow-[0_10px_24px_rgba(0,55,255,0.24)] transition-transform duration-300 group-hover:translate-y-0.5">
               ↓
@@ -166,16 +166,16 @@ export default function KaikWebsite() {
 
       <section id="services" className="relative min-h-screen overflow-hidden px-7 py-8 md:px-10 md:py-8">
         <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center">
-          <div className="flex items-center justify-between text-sm text-[#5e6372]">
+          <div className="reveal flex items-center justify-between text-sm text-[#5e6372]">
             <span>Servicios</span>
             <Image src="/logo-kaik.svg" alt="KAIK" width={58} height={18} className="h-4 w-auto opacity-75" />
           </div>
 
-          <h2 className={`mt-5 max-w-5xl text-[clamp(2.6rem,5.3vw,4.4rem)] font-bold leading-[0.92] tracking-[-0.05em] text-[#141824] ${museo.className}`}>
+          <h2 className={`reveal mt-5 max-w-5xl text-[clamp(2.6rem,5.3vw,4.4rem)] font-bold leading-[0.92] tracking-[-0.05em] text-[#141824] ${museo.className}`}>
             <span className="block">Dos unidades,</span>
             <span className="block">una misma <span className="text-[#0037FF]">lógica de valor.</span></span>
           </h2>
-          <p className="mt-3 max-w-2xl text-[0.98rem] leading-7 text-[#676d7b] md:text-base">
+          <p className="reveal reveal-delay-1 mt-3 max-w-2xl text-[0.98rem] leading-7 text-[#676d7b] md:text-base">
             Integramos <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong>, <strong className="font-semibold text-[#2a2d38]">desarrollo digital</strong> e <strong className="font-semibold text-[#2a2d38]">inteligencia artificial</strong> para construir sistemas coherentes, escalables y visualmente más atractivos.
           </p>
 
@@ -184,7 +184,7 @@ export default function KaikWebsite() {
               <article
                 key={item.title}
                 data-spotlight
-                className={`relative flex min-h-[22rem] h-full flex-col overflow-hidden rounded-[1.7rem] border p-6 ${index === 1 ? 'border-[#2f57ff] bg-[linear-gradient(180deg,#2f57ff_0%,#0037FF_100%)] text-white shadow-[0_20px_60px_rgba(0,55,255,0.18)]' : 'glass-card border-white/92 bg-[rgba(255,255,255,0.85)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/85'}`}
+                className={`reveal reveal-zoom ${index === 1 ? 'reveal-delay-1' : ''} relative flex min-h-[22rem] h-full flex-col overflow-hidden rounded-[1.7rem] border p-6 ${index === 1 ? 'border-[#2f57ff] bg-[linear-gradient(180deg,#2f57ff_0%,#0037FF_100%)] text-white shadow-[0_20px_60px_rgba(0,55,255,0.18)]' : 'glass-card border-white/92 bg-[rgba(255,255,255,0.85)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/85'}`}
               >
                 <div className={`text-xs uppercase tracking-[0.24em] ${index === 1 ? 'text-white/72' : 'text-[#66708e]'}`}>{item.eyebrow}</div>
                 <h3 className={`mt-4 text-[1.95rem] font-bold leading-[0.95] tracking-[-0.04em] ${museo.className}`}>
@@ -210,12 +210,12 @@ export default function KaikWebsite() {
 
       <section id="approach" className="relative overflow-hidden px-7 py-12 md:px-10 md:py-16">
         <div className="mx-auto max-w-7xl text-center">
-          <div className="text-xs uppercase tracking-[0.28em] text-[#717685]">Enfoque</div>
-          <h2 className={`mt-5 text-[clamp(3rem,7vw,5.2rem)] font-bold leading-[0.92] tracking-[-0.06em] text-[#252833] ${museo.className}`}>
+          <div className="reveal text-xs uppercase tracking-[0.28em] text-[#717685]">Enfoque</div>
+          <h2 className={`reveal mt-5 text-[clamp(3rem,7vw,5.2rem)] font-bold leading-[0.92] tracking-[-0.06em] text-[#252833] ${museo.className}`}>
             We build
             <span className="block text-[#0037FF]">connections.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#676d7b] md:text-lg">
+          <p className="reveal reveal-delay-1 mx-auto mt-5 max-w-3xl text-base leading-8 text-[#676d7b] md:text-lg">
             No trabajamos piezas aisladas. Diseñamos sistemas y servicios de comunicación + herramientas digitales que hacen que una empresa se vea mejor, comunique mejor y opere con mayor eficiencia.
           </p>
           <div className="relative mt-12 grid gap-6 md:grid-cols-3">
@@ -224,7 +224,7 @@ export default function KaikWebsite() {
               <article
                 key={card.title}
                 data-spotlight
-                className={`glass-card relative z-10 flex min-h-[23rem] flex-col rounded-[2rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,55,255,0.12)] supports-[backdrop-filter]:bg-white/85 ${index === 0 ? 'md:mt-4' : index === 1 ? 'md:min-h-[24rem]' : 'md:mt-4'}`}
+                className={`reveal reveal-zoom ${index === 1 ? 'reveal-delay-1' : index === 2 ? 'reveal-delay-2' : ''} glass-card relative z-10 flex min-h-[23rem] flex-col rounded-[2rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,55,255,0.12)] supports-[backdrop-filter]:bg-white/85 ${index === 0 ? 'md:mt-4' : index === 1 ? 'md:min-h-[24rem]' : 'md:mt-4'}`}
               >
                 <div className="mt-4 flex items-center justify-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
