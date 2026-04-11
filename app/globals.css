@@ -144,6 +144,21 @@ body::before {
   animation-delay: -3.2s;
 }
 
+.brand-shape-float {
+  --shape-rotate: 0deg;
+  --shape-float-y: -18px;
+  --shape-float-x: 10px;
+  animation: brand-shape-float 9s ease-in-out infinite;
+  transform: translate3d(0, 0, 0) rotate(var(--shape-rotate));
+  transform-origin: center;
+  will-change: transform;
+}
+
+.brand-shape-float-soft {
+  animation-duration: 11s;
+  animation-delay: -4.5s;
+}
+
 .glass-card {
   position: relative;
   overflow: hidden;
@@ -273,6 +288,16 @@ body::before {
   }
   50% {
     transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes brand-shape-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--shape-rotate));
+  }
+  50% {
+    transform: translate3d(var(--shape-float-x), var(--shape-float-y), 0) rotate(calc(var(--shape-rotate) + 2deg));
   }
 }
 
