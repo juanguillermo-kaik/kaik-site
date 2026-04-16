@@ -8,13 +8,13 @@ const museo = MuseoModerno({ subsets: ['latin'], weight: ['600', '700', '800'] }
 const services = [
   {
     eyebrow: 'Narrativa + Identidad',
-    title: 'Creative Content',
+    title: 'Creative Studio',
     desc: 'Contenido digital que conecta, organiza y hace crecer tu marca.',
     bullets: [
-      'Sistemas visuales para comunicar con eficiencia',
-      'Contenido y campañas con dirección de arte',
-      'Marketing interno e industrial con estándar excepcional',
-      'Equipo creativo externo en modelo continuo (fee)',
+      'Sistemas visuales que dan orden y consistencia',
+      'Diseño y audiovisual con alto estándar creativo',
+      'Comunicación interna que conecta equipos',
+      'Equipo creativo externo, continuo y escalable',
     ],
     icon: '+',
   },
@@ -70,6 +70,17 @@ export default function KaikWebsite() {
             className="object-cover object-center"
             sizes="100vw"
             priority
+            unoptimized
+          />
+        </div>
+        <div className="pointer-events-none absolute right-[-4.5rem] top-[18rem] z-0 h-[20rem] w-[28rem] md:hidden">
+          <Image
+            src="/hero-mascot-final.png?v=20260416-mobile"
+            alt=""
+            fill
+            className="object-cover object-[70%_center]"
+            sizes="28rem"
+            aria-hidden="true"
             unoptimized
           />
         </div>
@@ -191,6 +202,17 @@ export default function KaikWebsite() {
             unoptimized
           />
         </div>
+        <div className="pointer-events-none absolute right-[-7rem] top-8 z-0 h-48 w-72 md:hidden">
+          <Image
+            src="/services-dog-20260411.png"
+            alt=""
+            fill
+            className="object-cover object-top"
+            sizes="18rem"
+            aria-hidden="true"
+            unoptimized
+          />
+        </div>
         <Image
           src="/shape-brand-corner.svg"
           alt=""
@@ -266,6 +288,17 @@ export default function KaikWebsite() {
           aria-hidden="true"
           unoptimized
         />
+        <div className="pointer-events-none absolute -left-16 top-6 z-0 h-36 w-56 md:hidden">
+          <Image
+            src="/approach-dog-20260411-1138.png?v=20260416-mobile"
+            alt=""
+            fill
+            className="object-cover object-left-top"
+            sizes="14rem"
+            aria-hidden="true"
+            unoptimized
+          />
+        </div>
         <Image
           src="/shape-brand-arc.svg"
           alt=""
@@ -325,6 +358,17 @@ export default function KaikWebsite() {
             fill
             className="object-cover object-center"
             sizes="52vw"
+            aria-hidden="true"
+            unoptimized
+          />
+        </div>
+        <div className="pointer-events-none absolute -bottom-10 right-[-5.5rem] z-0 h-48 w-80 md:hidden">
+          <Image
+            src="/contact-dog-20260411.png"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="20rem"
             aria-hidden="true"
             unoptimized
           />
