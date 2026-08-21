@@ -38,6 +38,16 @@ const principles = [
   { label: 'Deployment', title: 'Lanzamos y escalamos impacto.', desc: 'Ejecutamos piezas comunicacionales, experiencias y plataformas con foco en resultados de valor para nuestros clientes.', icon: '×' },
 ]
 
+function StudioTitle({ title }: { title: string }) {
+  const [name, suffix] = title.split(' ')
+
+  return (
+    <>
+      {name} {suffix && <span className="text-[#0037FF]">{suffix}</span>}
+    </>
+  )
+}
+
 export default function KaikWebsite() {
   return (
     <main className={`min-h-screen bg-[radial-gradient(circle_at_12%_58%,rgba(190,213,255,0.4),transparent_33%),radial-gradient(circle_at_78%_32%,rgba(207,224,255,0.3),transparent_26%),linear-gradient(122deg,#eff5ff_0%,#fbfcff_44%,#fff_100%)] text-[#20222d] ${archivo.className}`}>
@@ -161,7 +171,7 @@ export default function KaikWebsite() {
                     </div>
                     <div className="mt-4 text-[0.57rem] uppercase tracking-[0.22em] text-[#8a90a1]">{card.eyebrow}</div>
                     <div className={`mt-2 text-[1.48rem] font-bold leading-[0.95] tracking-[-0.045em] text-[#171a24] ${museo.className}`}>
-                      {card.title}
+                      <StudioTitle title={card.title} />
                     </div>
                     <p className="mt-2 max-w-[12rem] text-[0.83rem] leading-5 text-[#636978]">{card.desc}</p>
                   </article>
@@ -237,8 +247,8 @@ export default function KaikWebsite() {
                   </span>
                 </div>
                 <div className="mt-6 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-[#66708e]">{item.eyebrow}</div>
-                <h3 className={`mt-3 text-[1.95rem] font-bold leading-[0.95] tracking-[-0.04em] text-[#0037FF] ${museo.className}`}>
-                  {item.title}
+                <h3 className={`mt-3 text-[1.95rem] font-bold leading-[0.95] tracking-[-0.04em] text-[#171a24] ${museo.className}`}>
+                  <StudioTitle title={item.title} />
                 </h3>
                 <p className="mt-4 max-w-[30rem] text-[0.98rem] leading-7 text-[#6c7280]">{item.desc}</p>
                 <ul className="mt-6 grid gap-3 border-t border-[#dfe5f2] pt-5">
