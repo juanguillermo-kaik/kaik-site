@@ -62,24 +62,26 @@ export default function KaikWebsite() {
           className="brand-shape-float brand-shape-float-soft pointer-events-none absolute -bottom-8 -left-12 z-0 hidden w-44 max-w-none [--shape-float-x:8px] [--shape-float-y:-16px] md:block lg:left-4 lg:w-56"
           aria-hidden="true"
         />
-        <div className="pointer-events-none absolute inset-0 hidden md:block">
+        <div className="pointer-events-none absolute bottom-56 right-36 z-0 hidden h-[32rem] w-[28rem] md:block lg:bottom-60 lg:right-40 lg:h-[36rem] lg:w-[32rem] xl:bottom-68 xl:right-44 xl:h-[40rem] xl:w-[36rem]">
           <Image
-            src="/hero-mascot-final.png?v=20260409-1951"
+            src="/hero-mascot-final.png?v=20260820-renato"
             alt="Mascota espacial de KAIK"
             fill
-            className="object-cover object-center"
-            sizes="100vw"
+            className="object-contain object-right-bottom"
+            sizes="(min-width: 1280px) 36rem, (min-width: 1024px) 32rem, 28rem"
             priority
             unoptimized
           />
         </div>
-        <div className="pointer-events-none absolute right-[-4.5rem] top-[18rem] z-0 h-[20rem] w-[28rem] md:hidden">
+        <div className="pointer-events-none absolute right-0 top-28 z-0 h-[17rem] w-[12rem] overflow-hidden md:hidden">
+          <div className="absolute right-2 top-8 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.32),rgba(0,55,255,0.14)_42%,transparent_74%)] blur-2xl" />
+          <div className="absolute inset-0 rounded-[2.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))]" />
           <Image
-            src="/hero-mascot-final.png?v=20260416-mobile"
+            src="/hero-mascot-final.png?v=20260820-renato-mobile"
             alt=""
             fill
-            className="object-cover object-[70%_center]"
-            sizes="28rem"
+            className="object-contain object-[86%_28%] scale-[1.42]"
+            sizes="12rem"
             aria-hidden="true"
             unoptimized
           />
@@ -108,7 +110,7 @@ export default function KaikWebsite() {
           </header>
 
           <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-[52%_48%] md:items-center md:gap-0 md:pt-10">
-            <div className="max-w-[29rem] md:pt-3">
+            <div className="mt-16 max-w-[29rem] md:mt-0 md:pt-3">
               <div className="reveal inline-flex items-center gap-2 rounded-full border border-[#d9dce6] bg-white/55 px-4 py-2 text-xs text-[#5d6272] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
                 <span className="flex items-center gap-1">
                   <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
@@ -123,9 +125,11 @@ export default function KaikWebsite() {
                 <span className="mt-1 block text-[#2a2d38]">Let&apos;s create.</span>
               </h1>
 
-              <p className="reveal reveal-delay-2 mt-5 max-w-xl text-[0.98rem] leading-7 text-[#696f7d] md:text-[1.02rem]">
-                Exploramos para ayudar a las empresas a <strong className="font-semibold text-[#2a2d38]">descubrir nuevas formas</strong> de conectar con sus equipos y clientes, combinando <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong> y <strong className="font-semibold text-[#2a2d38]">plataformas digitales</strong>.
-              </p>
+              <div className="reveal reveal-delay-2 mt-5 md:mt-5">
+                <p className="max-w-xl rounded-[1.4rem] border border-white/40 bg-white/20 px-3.5 py-3 text-[0.98rem] leading-7 text-[#696f7d] shadow-[0_10px_24px_rgba(0,55,255,0.04)] backdrop-blur-[6px] md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-0 md:text-[1.02rem] md:shadow-none md:backdrop-blur-0">
+                  Exploramos para ayudar a las empresas a <strong className="font-semibold text-[#2a2d38]">descubrir nuevas formas</strong> de conectar con sus equipos y clientes, combinando <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong> y <strong className="font-semibold text-[#2a2d38]">plataformas digitales</strong>.
+                </p>
+              </div>
 
               <div className="reveal reveal-delay-2 mt-6 flex items-center gap-3 text-sm font-semibold text-[#666b78]">
                 <span>Explorar</span>
