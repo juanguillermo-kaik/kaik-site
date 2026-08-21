@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Archivo, MuseoModerno } from 'next/font/google'
 import { MotionLayer } from './components/motion-layer'
-import { ContactForm } from './components/contact-form'
 
 const archivo = Archivo({ subsets: ['latin'], weight: ['400', '500', '600'] })
 const museo = MuseoModerno({ subsets: ['latin'], weight: ['600', '700', '800'] })
@@ -386,7 +385,7 @@ export default function KaikWebsite() {
           className="brand-shape-float brand-shape-float-soft pointer-events-none absolute right-16 top-8 z-0 hidden w-24 max-w-none [--shape-rotate:-6deg] [--shape-float-x:-10px] [--shape-float-y:-16px] md:block lg:right-24"
           aria-hidden="true"
         />
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(22rem,0.85fr)] lg:items-end">
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="text-xs uppercase tracking-[0.28em] text-[#717685]">Contacto</div>
             <h2 className={`mt-5 text-[clamp(2.8rem,6vw,5rem)] font-bold leading-[0.94] tracking-[-0.05em] text-[#1c202b] ${museo.className}`}>
@@ -395,25 +394,24 @@ export default function KaikWebsite() {
             <p className="mt-5 max-w-xl text-base leading-8 text-[#676d7b] md:text-lg">
               Si estás buscando un partner que combine contenido creativo y desarrollo digital con mirada estratégica, conversemos y exploremos juntos para crear algo realmente diferenciador.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="mailto:hola@kaik.cl"
-                className="rounded-full bg-[#0037FF] px-7 py-3.5 text-sm font-medium text-white shadow-[0_16px_40px_rgba(0,55,255,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b4fff]"
-              >
-                hola@kaik.cl
-              </a>
-              <a
-                href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-[#d9dde8] bg-white/70 px-7 py-3.5 text-sm font-medium text-[#1b1f2a] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
-              >
-                Agenda una reunión
-              </a>
-            </div>
           </div>
 
-          <ContactForm />
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="mailto:hola@kaik.cl"
+              className="rounded-full bg-[#0037FF] px-7 py-3.5 text-sm font-medium text-white shadow-[0_16px_40px_rgba(0,55,255,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b4fff]"
+            >
+              hola@kaik.cl
+            </a>
+            <a
+              href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[#d9dde8] bg-white/70 px-7 py-3.5 text-sm font-medium text-[#1b1f2a] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
+            >
+              Agenda una reunión
+            </a>
+          </div>
         </div>
       </section>
 
