@@ -38,9 +38,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   background-image:
-    radial-gradient(circle at top, rgba(0, 55, 255, 0.18), transparent 24rem),
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 18rem),
-    linear-gradient(180deg, #07101f 0%, #050816 42%, #03050f 100%);
+    radial-gradient(circle at 18% 12%, rgba(170, 194, 255, 0.18), transparent 24rem),
+    radial-gradient(circle at 82% 16%, rgba(204, 220, 255, 0.14), transparent 20rem),
+    linear-gradient(180deg, #f7f9ff 0%, #f4f7fd 42%, #edf3ff 100%);
   background-attachment: fixed;
 }
 

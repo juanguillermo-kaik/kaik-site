@@ -40,12 +40,12 @@ const principles = [
 
 export default function KaikWebsite() {
   return (
-    <main className={`min-h-screen bg-[radial-gradient(circle_at_top,rgba(91,121,255,0.14),transparent_28%),linear-gradient(135deg,#f6f7fb_0%,#f4f5f9_40%,#eef1fb_100%)] text-[#20222d] ${archivo.className}`}>
+    <main className={`min-h-screen bg-[radial-gradient(circle_at_18%_16%,rgba(172,197,255,0.24),transparent_26%),radial-gradient(circle_at_82%_18%,rgba(197,215,255,0.22),transparent_24%),linear-gradient(135deg,#f7f9ff_0%,#f6f8fc_42%,#eef4ff_100%)] text-[#20222d] ${archivo.className}`}>
       <MotionLayer />
       <section data-hero-scope className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(0,55,255,0.05),transparent_24%),radial-gradient(circle_at_76%_28%,rgba(114,145,255,0.06),transparent_22%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.72),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(173,197,255,0.22),transparent_24%),radial-gradient(circle_at_80%_22%,rgba(156,186,255,0.18),transparent_22%),radial-gradient(circle_at_52%_76%,rgba(255,255,255,0.88),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.84)_0%,rgba(244,247,255,0.72)_48%,rgba(231,239,255,0.82)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,55,255,0.3),transparent)]" />
-        <div className="absolute left-[40%] top-[22%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.05),transparent_70%)] blur-3xl" />
+        <div className="absolute left-[40%] top-[22%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(169,194,255,0.18),transparent_70%)] blur-3xl" />
         <Image
           src="/shape-brand-arc-dot.svg"
           alt=""
@@ -73,15 +73,15 @@ export default function KaikWebsite() {
             unoptimized
           />
         </div>
-        <div className="pointer-events-none absolute right-0 top-28 z-0 h-[17rem] w-[12rem] overflow-hidden md:hidden">
-          <div className="absolute right-2 top-8 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.32),rgba(0,55,255,0.14)_42%,transparent_74%)] blur-2xl" />
+        <div className="pointer-events-none absolute -right-3 top-44 z-0 h-[16rem] w-[10.75rem] overflow-hidden md:hidden">
+          <div className="absolute right-1 top-10 h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.24),rgba(0,55,255,0.1)_42%,transparent_74%)] blur-2xl" />
           <div className="absolute inset-0 rounded-[2.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))]" />
           <Image
             src="/hero-mascot-final.png?v=20260820-renato-mobile"
             alt=""
             fill
-            className="object-contain object-[86%_28%] scale-[1.42]"
-            sizes="12rem"
+            className="object-contain object-[84%_30%] scale-[1.26]"
+            sizes="10.75rem"
             aria-hidden="true"
             unoptimized
           />
