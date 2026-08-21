@@ -73,19 +73,6 @@ export default function KaikWebsite() {
             unoptimized
           />
         </div>
-        <div className="pointer-events-none absolute -right-3 top-44 z-0 h-[16rem] w-[10.75rem] overflow-hidden md:hidden">
-          <div className="absolute right-1 top-10 h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.24),rgba(0,55,255,0.1)_42%,transparent_74%)] blur-2xl" />
-          <div className="absolute inset-0 rounded-[2.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0))]" />
-          <Image
-            src="/hero-mascot-final.png?v=20260820-renato-mobile"
-            alt=""
-            fill
-            className="object-contain object-[84%_30%] scale-[1.26]"
-            sizes="10.75rem"
-            aria-hidden="true"
-            unoptimized
-          />
-        </div>
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-7 pb-10 pt-6 md:px-10 md:pb-12 md:pt-6">
           <header className="reveal flex items-center justify-between">
             <Image
@@ -120,7 +107,20 @@ export default function KaikWebsite() {
                 <span className="mt-2 block text-[#24262d]">Let&apos;s create.</span>
               </h1>
 
-              <div className="reveal reveal-delay-2 mt-5 md:mt-5">
+              <div className="relative ml-auto mt-1 h-52 w-48 overflow-hidden md:hidden">
+                <div className="absolute right-3 top-10 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.24),rgba(0,55,255,0.1)_42%,transparent_74%)] blur-2xl" />
+                <Image
+                  src="/hero-mascot-final.png?v=20260820-renato-mobile"
+                  alt=""
+                  fill
+                  className="object-contain object-[84%_30%] scale-[1.26]"
+                  sizes="12rem"
+                  aria-hidden="true"
+                  unoptimized
+                />
+              </div>
+
+              <div className="reveal reveal-delay-2 -mt-4 md:mt-5">
                 <p className="max-w-xl rounded-[1.4rem] border border-white/40 bg-white/20 px-3.5 py-3 text-[0.98rem] leading-7 text-[#696f7d] shadow-[0_10px_24px_rgba(0,55,255,0.04)] backdrop-blur-[6px] md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-0 md:text-[1.02rem] md:shadow-none md:backdrop-blur-0">
                   Exploramos para ayudar a las empresas a <strong className="font-semibold text-[#2a2d38]">descubrir nuevas formas</strong> de conectar con sus equipos y clientes, combinando <strong className="font-bold text-[#315be9]">contenido creativo</strong> y <strong className="font-bold text-[#315be9]">plataformas digitales</strong>.
                 </p>
@@ -142,6 +142,7 @@ export default function KaikWebsite() {
                   Ver servicios
                 </a>
               </div>
+
             </div>
 
             <div className="relative min-h-[28rem] md:min-h-[34rem]">
