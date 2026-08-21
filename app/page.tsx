@@ -404,7 +404,7 @@ export default function KaikWebsite() {
               hola@kaik.cl
             </a>
             <a
-              href="https://calendar.app.google/yj33kB3b1XfCDkQJ9"
+                href="https://calendar.app.google/V4MkrusEFnESRAuaA"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-[#d9dde8] bg-white/70 px-7 py-3.5 text-sm font-medium text-[#1b1f2a] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
