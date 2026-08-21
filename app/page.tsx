@@ -40,10 +40,10 @@ const principles = [
 
 export default function KaikWebsite() {
   return (
-    <main className={`min-h-screen bg-[radial-gradient(circle_at_18%_16%,rgba(172,197,255,0.24),transparent_26%),radial-gradient(circle_at_82%_18%,rgba(197,215,255,0.22),transparent_24%),linear-gradient(135deg,#f7f9ff_0%,#f6f8fc_42%,#eef4ff_100%)] text-[#20222d] ${archivo.className}`}>
+    <main className={`min-h-screen bg-[radial-gradient(circle_at_12%_58%,rgba(190,213,255,0.4),transparent_33%),radial-gradient(circle_at_78%_32%,rgba(207,224,255,0.3),transparent_26%),linear-gradient(122deg,#eff5ff_0%,#fbfcff_44%,#fff_100%)] text-[#20222d] ${archivo.className}`}>
       <MotionLayer />
       <section data-hero-scope className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(173,197,255,0.22),transparent_24%),radial-gradient(circle_at_80%_22%,rgba(156,186,255,0.18),transparent_22%),radial-gradient(circle_at_52%_76%,rgba(255,255,255,0.88),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.84)_0%,rgba(244,247,255,0.72)_48%,rgba(231,239,255,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_62%,rgba(181,209,255,0.34),transparent_32%),radial-gradient(circle_at_76%_28%,rgba(196,218,255,0.24),transparent_25%),linear-gradient(115deg,rgba(244,248,255,0.9)_0%,rgba(255,255,255,0.96)_52%,rgba(248,251,255,0.9)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,55,255,0.3),transparent)]" />
         <div className="absolute left-[40%] top-[22%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(169,194,255,0.18),transparent_70%)] blur-3xl" />
         <Image
@@ -62,7 +62,7 @@ export default function KaikWebsite() {
           className="brand-shape-float brand-shape-float-soft pointer-events-none absolute -bottom-8 -left-12 z-0 hidden w-44 max-w-none [--shape-float-x:8px] [--shape-float-y:-16px] md:block lg:left-4 lg:w-56"
           aria-hidden="true"
         />
-        <div className="pointer-events-none absolute bottom-56 right-36 z-0 hidden h-[32rem] w-[28rem] md:block lg:bottom-60 lg:right-40 lg:h-[36rem] lg:w-[32rem] xl:bottom-68 xl:right-44 xl:h-[40rem] xl:w-[36rem]">
+        <div className="pointer-events-none absolute bottom-56 right-32 z-0 hidden h-[34rem] w-[30rem] md:block lg:bottom-52 lg:right-36 lg:h-[39rem] lg:w-[35rem] xl:bottom-48 xl:right-40 xl:h-[43rem] xl:w-[39rem]">
           <Image
             src="/hero-mascot-final.png?v=20260820-renato"
             alt="Mascota espacial de KAIK"
@@ -97,54 +97,43 @@ export default function KaikWebsite() {
               priority
             />
 
-            <nav className="hidden items-center gap-8 text-sm text-[#444857] md:flex">
+            <nav className="hidden items-center gap-5 text-[0.78rem] text-[#444857] lg:gap-8 lg:text-sm md:flex">
               <a href="#services" className="transition-colors duration-300 hover:text-[#1f2330]">Servicios</a>
               <a href="#approach" className="transition-colors duration-300 hover:text-[#1f2330]">Enfoque</a>
+              <a href="#contact" className="transition-colors duration-300 hover:text-[#1f2330]">Contacto</a>
               <a
-                href="#contact"
+                href="https://calendar.app.google/V4MkrusEFnESRAuaA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#0037FF] px-5 py-2.5 text-white shadow-[0_12px_30px_rgba(0,55,255,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b4fff]"
               >
-                Conecta
+                Agenda
               </a>
             </nav>
           </header>
 
-          <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-[52%_48%] md:items-center md:gap-0 md:pt-10">
-            <div className="mt-16 max-w-[29rem] md:mt-0 md:pt-3">
-              <div className="reveal inline-flex items-center gap-2 rounded-full bg-white/55 px-4 py-2 text-xs text-[#5d6272] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur">
-                <span className="flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
-                  <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
-                </span>
-                <span>Creative Content + Software Solutions</span>
-              </div>
-
-              <h1 className={`reveal reveal-delay-1 mt-6 text-[clamp(3.1rem,8vw,6.25rem)] font-bold leading-[0.82] tracking-[-0.07em] text-[#7c808d] ${museo.className}`}>
+          <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-[54%_46%] md:items-center md:gap-0 md:pt-10">
+            <div className="mt-16 max-w-[34rem] md:mt-0 md:pt-3">
+              <h1 className={`reveal text-[clamp(3.6rem,8.5vw,6.8rem)] font-bold leading-[0.8] tracking-[-0.075em] text-[#0037FF] ${museo.className}`}>
                 <span className="block whitespace-nowrap">We explore</span>
                 <span className="block text-[#0037FF]">to connect.</span>
-                <span className="mt-1 block text-[#2a2d38]">Let&apos;s create.</span>
+                <span className="mt-2 block text-[#24262d]">Let&apos;s create.</span>
               </h1>
 
               <div className="reveal reveal-delay-2 mt-5 md:mt-5">
                 <p className="max-w-xl rounded-[1.4rem] border border-white/40 bg-white/20 px-3.5 py-3 text-[0.98rem] leading-7 text-[#696f7d] shadow-[0_10px_24px_rgba(0,55,255,0.04)] backdrop-blur-[6px] md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-0 md:text-[1.02rem] md:shadow-none md:backdrop-blur-0">
-                  Exploramos para ayudar a las empresas a <strong className="font-semibold text-[#2a2d38]">descubrir nuevas formas</strong> de conectar con sus equipos y clientes, combinando <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong> y <strong className="font-semibold text-[#2a2d38]">plataformas digitales</strong>.
+                  Exploramos para ayudar a las empresas a <strong className="font-semibold text-[#2a2d38]">descubrir nuevas formas</strong> de conectar con sus equipos y clientes, combinando <strong className="font-bold text-[#315be9]">contenido creativo</strong> y <strong className="font-bold text-[#315be9]">plataformas digitales</strong>.
                 </p>
-              </div>
-
-              <div className="reveal reveal-delay-2 mt-6 flex items-center gap-3 text-sm font-semibold text-[#666b78]">
-                <span>Explorar</span>
-                <span>→</span>
-                <span>Crear</span>
-                <span>→</span>
-                <span>Conectar</span>
               </div>
 
               <div className="reveal reveal-delay-3 mt-7 flex flex-wrap gap-4">
                 <a
-                  href="#contact"
+                  href="https://calendar.app.google/V4MkrusEFnESRAuaA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full bg-[#0037FF] px-7 py-3.5 text-sm font-medium text-white shadow-[0_16px_40px_rgba(0,55,255,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1b4fff]"
                 >
-                  Conecta
+                  Agenda una reunión
                 </a>
                 <a
                   href="#services"
@@ -156,41 +145,30 @@ export default function KaikWebsite() {
             </div>
 
             <div className="relative min-h-[28rem] md:min-h-[34rem]">
-              <div className="relative z-10 flex min-h-[28rem] items-end justify-center gap-5 px-2 pb-8 pt-16 md:min-h-[34rem] md:justify-center md:gap-[1.6rem] md:px-0 md:pb-0 md:pt-[10.5rem]">
+              <div className="relative z-10 flex min-h-[28rem] items-end justify-center gap-3 px-2 pb-5 pt-24 md:min-h-[34rem] md:translate-y-5 md:justify-end md:gap-6 md:px-0 md:pb-2 md:pt-[15rem]">
                 {services.map((card, index) => (
                   <article
                     key={card.title}
                     data-spotlight
-                    className={`reveal reveal-zoom ${index === 1 ? 'reveal-delay-1' : ''} glass-card hero-float flex min-h-[19.2rem] w-full max-w-[17.6rem] flex-col rounded-[2rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/85 ${index === 0 ? 'md:-ml-2' : 'hero-float-delay md:ml-1'}`}
+                    className={`reveal reveal-zoom ${index === 1 ? 'reveal-delay-1' : ''} glass-card hero-float flex min-h-[14.5rem] w-full max-w-[14.25rem] flex-col rounded-[1.7rem] border border-white/92 bg-[rgba(255,255,255,0.9)] p-5 shadow-[0_18px_44px_rgba(36,62,118,0.12)] backdrop-blur-[20px] supports-[backdrop-filter]:bg-white/90 ${index === 0 ? 'md:mb-8' : 'hero-float-delay md:z-10'}`}
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-[1rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
                       <span className="flex items-center gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#0037FF]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#0037FF]" />
+                        <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
+                        <span className="h-2 w-2 rounded-full bg-[#0037FF]" />
                       </span>
                     </div>
-                    <div className="mt-6 text-[0.62rem] uppercase tracking-[0.24em] text-[#8a90a1]">{card.eyebrow}</div>
-                    <div className={`mt-3 text-[1.72rem] font-bold leading-[0.95] tracking-[-0.045em] text-[#171a24] ${museo.className}`}>
+                    <div className="mt-4 text-[0.57rem] uppercase tracking-[0.22em] text-[#8a90a1]">{card.eyebrow}</div>
+                    <div className={`mt-2 text-[1.48rem] font-bold leading-[0.95] tracking-[-0.045em] text-[#171a24] ${museo.className}`}>
                       {card.title}
                     </div>
-                    <p className="mt-3 max-w-[13.8rem] text-[0.95rem] leading-7 text-[#636978]">{card.desc}</p>
+                    <p className="mt-2 max-w-[12rem] text-[0.83rem] leading-5 text-[#636978]">{card.desc}</p>
                   </article>
                 ))}
               </div>
             </div>
           </div>
 
-          <a
-            href="#services"
-            className="group absolute bottom-6 right-7 z-20 hidden items-center gap-3 rounded-full border border-white/80 bg-[rgba(255,255,255,0.78)] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/90 md:flex md:right-10 md:bottom-8"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0037FF] text-white shadow-[0_10px_24px_rgba(0,55,255,0.24)] transition-transform duration-300 group-hover:translate-y-0.5">
-              ↓
-            </span>
-            <span className="pr-2 text-[0.72rem] font-medium uppercase tracking-[0.22em] text-[#5a6070]">
-              Explora
-            </span>
-          </a>
         </div>
       </section>
 
