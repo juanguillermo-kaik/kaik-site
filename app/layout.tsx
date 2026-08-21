@@ -13,8 +13,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Let's create",
-  description: "KAIK creative and software solutions",
+  metadataBase: new URL("https://kaik.cl"),
+  title: "KAIK | Agencia creativa, software e IA en Chile",
+  description: "KAIK combina estrategia, contenido creativo, desarrollo de software e inteligencia artificial para empresas en Chile.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    url: "/",
+    siteName: "KAIK",
+    title: "KAIK | Agencia creativa, software e IA en Chile",
+    description: "Estrategia, contenido creativo, software e inteligencia artificial para empresas que buscan crecer.",
+  },
+  twitter: {
+    card: "summary",
+    title: "KAIK | Agencia creativa, software e IA en Chile",
+    description: "Estrategia, contenido creativo, software e inteligencia artificial para empresas que buscan crecer.",
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
@@ -29,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

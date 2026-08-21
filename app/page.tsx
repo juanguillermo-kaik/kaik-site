@@ -9,24 +9,24 @@ const services = [
   {
     eyebrow: 'Narrativa + Identidad',
     title: 'Creative Studio',
-    desc: 'Contenido digital que conecta, organiza y hace crecer tu marca.',
+    desc: 'Creatividad, diseño y contenido audiovisual para marcas que quieren conectar y crecer.',
     bullets: [
-      'Sistemas visuales que dan orden y consistencia',
-      'Diseño y audiovisual con alto estándar creativo',
-      'Comunicación interna que conecta equipos',
-      'Equipo creativo externo, continuo y escalable',
+      'Branding e identidad visual',
+      'Producción audiovisual y motion graphics',
+      'Endomarketing y marketing B2B',
+      'Outsourcing creativo escalable',
     ],
     icon: '+',
   },
   {
     eyebrow: 'Producto + Operación',
     title: 'Software Studio',
-    desc: 'Plataformas digitales que conectan, optimizan y hacen crecer tu operación.',
+    desc: 'Tecnología y soluciones digitales para empresas que quieren conectar, optimizar y crecer.',
     bullets: [
-      'Plataformas y productos SaaS',
-      'Sitios web y landings de alto impacto',
-      'Automatización y herramientas internas',
-      'Soluciones a medida con foco de negocio',
+      'Plataformas digitales y productos SaaS',
+      'Desarrollo web y experiencias digitales',
+      'Automatización e inteligencia artificial',
+      'Software a medida e integraciones',
     ],
     icon: '◩',
   },
@@ -213,48 +213,45 @@ export default function KaikWebsite() {
           aria-hidden="true"
         />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center">
-          <div className="reveal flex items-center justify-between text-sm text-[#5e6372]">
-            <span>Servicios</span>
-            <Image src="/logo-kaik.svg" alt="KAIK" width={58} height={18} className="h-4 w-auto opacity-75" />
-          </div>
+          <div className="reveal text-xs font-medium uppercase tracking-[0.28em] text-[#717685]">Servicios</div>
 
           <h2 className={`reveal mt-5 max-w-5xl text-[clamp(2.6rem,5.3vw,4.4rem)] font-bold leading-[0.92] tracking-[-0.05em] text-[#141824] ${museo.className}`}>
             <span className="block">Dos unidades,</span>
             <span className="block">una misma <span className="text-[#0037FF]">lógica de valor.</span></span>
           </h2>
-          <p className="reveal reveal-delay-1 mt-3 max-w-2xl text-[0.98rem] leading-7 text-[#676d7b] md:text-base">
+          <p className="reveal reveal-delay-1 mt-4 max-w-xl text-[0.98rem] leading-7 text-[#676d7b] md:text-base">
             Integramos <strong className="font-semibold text-[#2a2d38]">contenido creativo</strong>, <strong className="font-semibold text-[#2a2d38]">desarrollo digital</strong> e <strong className="font-semibold text-[#2a2d38]">inteligencia artificial</strong> para construir sistemas coherentes, escalables y visualmente más atractivos.
           </p>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-9 grid gap-5 md:grid-cols-2 md:gap-6">
             {services.map((item, index) => (
               <article
                 key={item.title}
                 data-spotlight
-                className={`reveal reveal-zoom glass-card ${index === 1 ? 'reveal-delay-1' : ''} relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.7rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 supports-[backdrop-filter]:bg-white/85`}
+                className={`reveal reveal-zoom glass-card ${index === 1 ? 'reveal-delay-1' : ''} relative flex h-full min-h-[20rem] flex-col overflow-hidden rounded-[1.7rem] border border-white/92 bg-[rgba(255,255,255,0.85)] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-[20px] transition-all duration-300 hover:-translate-y-1 supports-[backdrop-filter]:bg-white/85 md:p-8`}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-[1.15rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
+                <div className="flex h-11 w-11 items-center justify-center rounded-[1.1rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.55))] shadow-[inset_0_1px_0_rgba(255,255,255,0.98),0_8px_18px_rgba(180,188,208,0.14)] backdrop-blur-xl">
                   <span className="flex items-center gap-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-[#0037FF]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#0037FF]" />
                   </span>
                 </div>
-                <div className="mt-6 text-xs uppercase tracking-[0.24em] text-[#66708e]">{item.eyebrow}</div>
-                <h3 className={`mt-4 text-[1.95rem] font-bold leading-[0.95] tracking-[-0.04em] text-[#0037FF] ${museo.className}`}>
+                <div className="mt-6 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-[#66708e]">{item.eyebrow}</div>
+                <h3 className={`mt-3 text-[1.95rem] font-bold leading-[0.95] tracking-[-0.04em] text-[#0037FF] ${museo.className}`}>
                   {item.title}
                 </h3>
-                <p className="mt-4 max-w-[34rem] text-[0.98rem] leading-7 text-[#6c7280]">{item.desc}</p>
-                <div className="mt-5 h-px w-full bg-[linear-gradient(90deg,rgba(0,55,255,0.5),rgba(0,55,255,0.06))]" />
-                <div className="mt-5 grid gap-3">
+                <p className="mt-4 max-w-[30rem] text-[0.98rem] leading-7 text-[#6c7280]">{item.desc}</p>
+                <ul className="mt-6 grid gap-3 border-t border-[#dfe5f2] pt-5">
                   {item.bullets.map((bullet) => (
-                    <div
+                    <li
                       key={bullet}
-                      className="rounded-[1.05rem] border border-white/82 bg-white/60 px-4 py-3 text-[0.94rem] text-[#505665] backdrop-blur-xl"
+                      className="flex items-start gap-3 text-[0.92rem] leading-6 text-[#505665]"
                     >
-                      {bullet}
-                    </div>
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0037FF]" />
+                      <span>{bullet}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </article>
             ))}
           </div>
