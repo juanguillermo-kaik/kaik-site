@@ -74,9 +74,9 @@ export default function KaikWebsite() {
           className="brand-shape-float brand-shape-float-soft pointer-events-none absolute -bottom-8 -left-12 z-0 hidden w-44 max-w-none [--shape-float-x:8px] [--shape-float-y:-16px] md:block lg:left-4 lg:w-56"
           aria-hidden="true"
         />
-        <div className="pointer-events-none absolute bottom-56 right-32 z-0 hidden h-[34rem] w-[30rem] md:block lg:bottom-52 lg:right-36 lg:h-[39rem] lg:w-[35rem] xl:bottom-48 xl:right-40 xl:h-[43rem] xl:w-[39rem]">
+        <div className="pointer-events-none absolute bottom-56 right-32 z-0 hidden h-[34rem] w-[30rem] md:block lg:bottom-52 lg:right-36 lg:h-[39rem] lg:w-[35rem] xl:bottom-48 xl:right-[max(10rem,calc((100vw-80rem)/2))] xl:h-[43rem] xl:w-[39rem]">
           <Image
-            src="/hero-mascot-final.png?v=20260820-renato"
+            src="/hero-mascot-final.webp"
             alt="Mascota espacial de KAIK"
             fill
             className="object-contain object-right-bottom"
@@ -111,7 +111,7 @@ export default function KaikWebsite() {
             </nav>
           </header>
 
-          <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-[54%_46%] md:items-center md:gap-0 md:pt-10">
+          <div className="grid flex-1 gap-8 pb-4 pt-10 md:grid-cols-2 md:items-center md:gap-0 md:pt-10">
             <div className="mt-16 max-w-[34rem] md:mt-0 md:pt-3">
               <h1 className={`reveal text-[clamp(3.6rem,8.5vw,6.8rem)] font-bold leading-[0.8] tracking-[-0.075em] text-[#0037FF] ${museo.className}`}>
                 <span className="block whitespace-nowrap">We explore</span>
@@ -122,7 +122,7 @@ export default function KaikWebsite() {
               <div className="relative ml-auto mt-1 h-52 w-48 overflow-hidden md:hidden">
                 <div className="absolute right-3 top-10 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(0,55,255,0.24),rgba(0,55,255,0.1)_42%,transparent_74%)] blur-2xl" />
                 <Image
-                  src="/hero-mascot-final.png?v=20260820-renato-mobile"
+                  src="/hero-mascot-final.webp"
                   alt=""
                   fill
                   className="object-contain object-[84%_30%] scale-[1.26]"
@@ -158,7 +158,7 @@ export default function KaikWebsite() {
             </div>
 
             <div className="relative min-h-[28rem] md:min-h-[34rem]">
-              <div className="relative z-10 flex min-h-[28rem] items-end justify-center gap-3 px-2 pb-5 pt-24 md:min-h-[34rem] md:translate-y-5 md:justify-end md:gap-6 md:px-0 md:pb-2 md:pt-[15rem]">
+              <div className="relative z-10 flex min-h-[28rem] items-end justify-center gap-3 px-2 pb-5 pt-24 md:min-h-[34rem] md:translate-y-5 md:gap-6 md:px-0 md:pb-2 md:pt-[15rem]">
                 {services.map((card, index) => (
                   <article
                     key={card.title}
@@ -188,7 +188,7 @@ export default function KaikWebsite() {
       <section id="services" className="relative min-h-screen overflow-hidden px-7 py-8 md:px-10 md:py-8">
         <div className="pointer-events-none absolute right-0 top-0 z-0 hidden h-[48%] w-[48%] md:block">
           <Image
-            src="/services-dog-20260411.png"
+            src="/services-dog.webp"
             alt=""
             fill
             className="object-cover object-top"
@@ -199,7 +199,7 @@ export default function KaikWebsite() {
         </div>
         <div className="pointer-events-none absolute right-[-7rem] top-8 z-0 h-48 w-72 md:hidden">
           <Image
-            src="/services-dog-20260411.png"
+            src="/services-dog.webp"
             alt=""
             fill
             className="object-cover object-top"
@@ -272,7 +272,7 @@ export default function KaikWebsite() {
 
       <section id="approach" className="relative overflow-hidden px-7 py-12 md:px-10 md:py-16">
         <Image
-          src="/approach-dog-astronaut.png"
+          src="/approach-dog-astronaut.webp"
           alt=""
           width={2048}
           height={2048}
@@ -282,7 +282,7 @@ export default function KaikWebsite() {
         />
         <div className="pointer-events-none absolute -left-16 top-6 z-0 h-36 w-56 md:hidden">
           <Image
-            src="/approach-dog-astronaut.png"
+            src="/approach-dog-astronaut.webp"
             alt=""
             fill
             className="object-contain object-left-top"
@@ -338,7 +338,7 @@ export default function KaikWebsite() {
       <section id="contact" className="relative overflow-hidden px-7 py-12 md:px-10 md:py-16">
         <div className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[52%] md:block">
           <Image
-            src="/contact-dog-20260411.png"
+            src="/contact-dog.webp"
             alt=""
             fill
             className="object-cover object-center"
@@ -349,7 +349,7 @@ export default function KaikWebsite() {
         </div>
         <div className="pointer-events-none absolute -bottom-10 right-[-5.5rem] z-0 h-48 w-80 md:hidden">
           <Image
-            src="/contact-dog-20260411.png"
+            src="/contact-dog.webp"
             alt=""
             fill
             className="object-cover object-center"
