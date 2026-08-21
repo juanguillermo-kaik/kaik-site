@@ -51,11 +51,11 @@ function StudioTitle({ title }: { title: string }) {
 
 export default function KaikWebsite() {
   return (
-    <main className={`min-h-screen bg-[radial-gradient(circle_at_12%_58%,rgba(190,213,255,0.4),transparent_33%),radial-gradient(circle_at_78%_32%,rgba(207,224,255,0.3),transparent_26%),linear-gradient(122deg,#eff5ff_0%,#fbfcff_44%,#fff_100%)] text-[#20222d] ${archivo.className}`}>
+    <main className={`min-h-screen bg-[radial-gradient(circle_at_10%_54%,rgba(174,207,255,0.52),transparent_34%),radial-gradient(circle_at_82%_28%,rgba(187,216,255,0.30),transparent_30%),radial-gradient(circle_at_70%_82%,rgba(212,228,255,0.36),transparent_28%),linear-gradient(122deg,#e8f2ff_0%,#f8fbff_46%,#f3f8ff_100%)] text-[#20222d] ${archivo.className}`}>
       <IntroSequence />
       <MotionLayer />
       <section data-hero-scope className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_62%,rgba(181,209,255,0.34),transparent_32%),radial-gradient(circle_at_76%_28%,rgba(196,218,255,0.24),transparent_25%),linear-gradient(115deg,rgba(244,248,255,0.9)_0%,rgba(255,255,255,0.96)_52%,rgba(248,251,255,0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_3%_62%,rgba(150,196,255,0.46),transparent_34%),radial-gradient(circle_at_78%_26%,rgba(164,204,255,0.24),transparent_29%),radial-gradient(circle_at_92%_76%,rgba(0,55,255,0.06),transparent_29%),linear-gradient(115deg,rgba(235,245,255,0.96)_0%,rgba(255,255,255,0.94)_54%,rgba(239,247,255,0.94)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,55,255,0.3),transparent)]" />
         <div className="absolute left-[40%] top-[22%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(169,194,255,0.18),transparent_70%)] blur-3xl" />
         <Image
