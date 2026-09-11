@@ -164,3 +164,19 @@ export async function removeAdminUser(id: number) {
 export function toSlug(value: string) {
   return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
+
+export function readingTime(body: string) {
+  let text = body;
+  try {
+    const collectText = (value: unknown): string[] => {
+      if (Array.isArray(value)) return value.flatMap(collectText);
+      if (!value || typeof value !== "object") return [];
+      const item = value as { text?: unknown; [key: string]: unknown };
+      if (typeof item.text === "string") return [item.text];
+      return Object.values(item).flatMap(collectText);
+    };
+    text = collectText(JSON.parse(body)).join(" ");
+  } catch { text = body.replace(/<[^>]*>/g, " "); }
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 220));
+}
