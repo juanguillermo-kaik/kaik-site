@@ -14,11 +14,22 @@ declare global {
 
   interface CloudflareEnv {
     BLOG_DB?: D1Database;
+    BLOG_MEDIA?: R2Bucket;
     BLOG_ADMIN_PASSWORD?: string;
     BLOG_ADMIN_EMAIL?: string;
     BLOG_SESSION_SECRET?: string;
     GOOGLE_CLIENT_ID?: string;
     GOOGLE_CLIENT_SECRET?: string;
+  }
+
+  interface R2ObjectBody {
+    body: ReadableStream;
+    httpMetadata?: { contentType?: string };
+  }
+
+  interface R2Bucket {
+    get(key: string): Promise<R2ObjectBody | null>;
+    put(key: string, value: ArrayBuffer, options?: { httpMetadata?: { contentType?: string } }): Promise<unknown>;
   }
 }
 

@@ -31,7 +31,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     image: post.og_image || post.cover_image || undefined,
   };
   return <main className={`min-h-screen bg-[linear-gradient(140deg,#eff6ff,#fff_54%,#edf5ff)] text-[#20222d] ${archivo.className}`}>
-    <header className="mx-auto flex max-w-4xl items-center justify-between px-7 py-7 md:px-10"><Link href="/" className="text-2xl font-black tracking-[-.15em] text-[#161923]">KÄIK</Link><Link href="/blog" className="text-sm font-semibold text-[#0037ff]">← Blog</Link></header>
+    <header className="mx-auto flex max-w-4xl items-center justify-between px-7 py-7 md:px-10"><Link href="/" aria-label="KAIK, inicio"><Image src="/logo-kaik.svg" alt="KAIK" width={106} height={34} className="h-8 w-auto [filter:brightness(0)_saturate(100%)_invert(13%)_sepia(14%)_saturate(643%)_hue-rotate(191deg)_brightness(95%)_contrast(92%)]" priority /></Link><Link href="/blog" className="text-sm font-semibold text-[#0037ff]">← Blog</Link></header>
     <article className="mx-auto max-w-4xl px-7 pb-24 pt-14 md:px-10 md:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <p className="text-xs font-semibold uppercase tracking-[.28em] text-[#0037ff]">{post.category}</p>

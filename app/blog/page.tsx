@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Archivo, MuseoModerno } from "next/font/google";
 import { getPublishedPosts } from "@/lib/blog";
 
@@ -22,7 +23,7 @@ export default async function BlogPage() {
   const posts = await getPublishedPosts();
   return <main className={`min-h-screen bg-[radial-gradient(circle_at_7%_15%,rgba(151,199,255,.46),transparent_26rem),linear-gradient(130deg,#edf5ff,#fff_48%,#eff6ff)] text-[#20222d] ${archivo.className}`}>
     <header className="mx-auto flex max-w-7xl items-center justify-between px-7 py-7 md:px-10">
-      <Link href="/" className="text-2xl font-black tracking-[-.15em] text-[#161923]">KÄIK</Link>
+      <Link href="/" aria-label="KAIK, inicio"><Image src="/logo-kaik.svg" alt="KAIK" width={106} height={34} className="h-8 w-auto [filter:brightness(0)_saturate(100%)_invert(13%)_sepia(14%)_saturate(643%)_hue-rotate(191deg)_brightness(95%)_contrast(92%)]" priority /></Link>
       <Link href="/" className="rounded-full border border-[#d8dfec] bg-white/70 px-5 py-2.5 text-sm font-medium transition hover:border-[#0037ff] hover:text-[#0037ff]">Volver al sitio</Link>
     </header>
     <section className="mx-auto max-w-7xl px-7 pb-20 pt-14 md:px-10 md:pt-24">
