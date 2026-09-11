@@ -24,6 +24,7 @@ export default function AdminClient({ initialAuthenticated, initialPosts, initia
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [adminEmail, setAdminEmail] = useState("");
 
   const set = (key: keyof Form, value: string) => setForm((current) => ({ ...current, [key]: value }));
@@ -105,7 +106,7 @@ export default function AdminClient({ initialAuthenticated, initialPosts, initia
     <div className="md:pl-20">
       <header className="flex min-h-24 items-center justify-between border-b border-[#edf0f5] bg-white px-6 md:px-10">
         <div><p className="text-[.68rem] font-semibold uppercase tracking-[.22em] text-[#9ca5b5]">KAIK · CMS</p><h1 className="mt-1 text-3xl font-semibold tracking-[-.05em] text-[#686c7b]">{view === "posts" ? "Blog" : "Administradores"}</h1></div>
-        <div className="flex items-center gap-4"><span className="hidden text-sm text-[#9aa4b5] sm:block">Administrador</span><button onClick={signOut} className="grid h-11 w-11 place-items-center rounded-full border-2 border-[#1475ff] bg-[#e8f2ff] text-base font-bold text-[#1475ff]" aria-label="Cerrar sesión">●</button></div>
+        <div className="relative flex items-center gap-4"><span className="hidden text-sm text-[#9aa4b5] sm:block">Administrador</span><button onClick={() => setAccountMenuOpen((open) => !open)} aria-expanded={accountMenuOpen} aria-haspopup="menu" className="grid h-11 w-11 place-items-center rounded-full border-2 border-[#1475ff] bg-[#e8f2ff] text-base font-bold text-[#1475ff]" aria-label="Abrir menú de cuenta">●</button>{accountMenuOpen && <div role="menu" className="absolute right-0 top-14 z-30 w-48 rounded-2xl border border-[#dce4ef] bg-white p-2 shadow-[0_16px_36px_rgba(48,77,122,.16)]"><p className="px-3 py-2 text-xs font-semibold uppercase tracking-[.14em] text-[#9aa4b5]">Cuenta</p><button role="menuitem" onClick={signOut} className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-[#d14d4d] transition hover:bg-[#fff1f1]">Cerrar sesión</button></div>}</div>
       </header>
       <div className="bg-[radial-gradient(circle_at_90%_100%,rgba(193,219,255,.46),transparent_23rem),linear-gradient(110deg,#eefbfc,#f6f8fc_55%)] px-6 py-7 md:px-10">
         <div className="flex flex-wrap items-center gap-2">
