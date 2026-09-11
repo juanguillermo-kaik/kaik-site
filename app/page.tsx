@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Archivo, MuseoModerno } from 'next/font/google'
 import { IntroSequence } from './components/intro-sequence'
 import { MotionLayer } from './components/motion-layer'
@@ -99,6 +100,7 @@ export default function KaikWebsite() {
             <nav className="hidden items-center gap-5 text-[0.78rem] text-[#444857] lg:gap-8 lg:text-sm md:flex">
               <a href="#services" className="transition-colors duration-300 hover:text-[#1f2330]">Servicios</a>
               <a href="#approach" className="transition-colors duration-300 hover:text-[#1f2330]">Enfoque</a>
+              <Link href="/blog" className="transition-colors duration-300 hover:text-[#1f2330]">Blog</Link>
               <a href="#contact" className="transition-colors duration-300 hover:text-[#1f2330]">Contacto</a>
               <a
                 href="https://calendar.app.google/V4MkrusEFnESRAuaA"
