@@ -28,12 +28,12 @@ export default async function BlogPage() {
       <h1 className={`mt-5 max-w-3xl text-[clamp(3.4rem,8vw,7rem)] font-bold leading-[.85] tracking-[-.07em] ${museo.className}`}>Pensamos, creamos y <span className="text-[#0037ff]">conectamos.</span></h1>
       <p className="mt-7 max-w-2xl text-lg leading-8 text-[#606777]">Perspectivas de KAIK sobre comunicación, diseño, tecnología y las herramientas que hacen crecer a las empresas.</p>
       <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => <article key={post.id} className="group flex min-h-80 flex-col rounded-[2rem] border border-white/80 bg-white/75 p-7 shadow-[0_24px_60px_rgba(45,83,150,.10)] backdrop-blur">
+        {posts.map((post) => <Link key={post.id} href={`/blog/${post.slug}`} aria-label={`Leer artículo: ${post.title}`} className="group flex min-h-80 flex-col rounded-[2rem] border border-white/80 bg-white/75 p-7 shadow-[0_24px_60px_rgba(45,83,150,.10)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#b9cfff] hover:shadow-[0_28px_66px_rgba(45,83,150,.16)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0037ff]">
           <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[.18em] text-[#0037ff]"><span>{post.category}</span><span className="text-[#9298a6]">{dateLabel(post.published_at)}</span></div>
           <h2 className={`mt-9 text-3xl font-bold leading-[.94] tracking-[-.05em] ${museo.className}`}>{post.title}</h2>
           <p className="mt-5 text-[.98rem] leading-7 text-[#656c7a]">{post.excerpt}</p>
-          <Link href={`/blog/${post.slug}`} className="mt-auto pt-8 text-sm font-semibold text-[#0037ff] transition group-hover:translate-x-1">Leer artículo <span aria-hidden="true">→</span></Link>
-        </article>)}
+          <span className="mt-auto pt-8 text-sm font-semibold text-[#0037ff] transition group-hover:translate-x-1">Leer artículo <span aria-hidden="true">→</span></span>
+        </Link>)}
       </div>
     </section>
   </main>;
