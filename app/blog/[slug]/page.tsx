@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     <article className="mx-auto max-w-7xl px-7 pb-24 pt-14 md:px-10 md:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <p className="text-xs font-semibold uppercase tracking-[.28em] text-[#0037ff]">{post.category}</p>
-      <h1 className={`mt-5 max-w-3xl text-[clamp(3.2rem,7vw,6.2rem)] font-bold leading-[.88] tracking-[-.07em] ${museo.className}`}>{post.title}</h1>
+      <h1 className={`mt-5 max-w-3xl text-[clamp(3.2rem,7vw,6.2rem)] font-bold leading-[.96] tracking-[-.07em] ${museo.className}`}>{post.title}</h1>
       <p className="mt-7 max-w-2xl text-xl leading-8 text-[#5f6675]">{post.excerpt}</p>
       {post.cover_image && <Image className="mt-12 aspect-[16/8] w-full rounded-[2rem] object-cover shadow-[0_24px_60px_rgba(45,83,150,.16)]" src={post.cover_image} alt={post.cover_alt || post.title} width={1200} height={600} unoptimized />}
       <div className="mt-14 max-w-5xl space-y-9 text-lg leading-9 text-[#454b59]"><RichText content={post.body} /></div>
