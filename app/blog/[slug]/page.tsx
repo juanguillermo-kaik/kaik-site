@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Archivo, MuseoModerno } from "next/font/google";
-import { getPublishedPost } from "@/lib/blog";
+import { getPublishedPost, getPublishedPosts } from "@/lib/blog";
 import { SiteNavigation } from "@/components/site-navigation";
+import { SiteFooter } from "@/components/site-footer";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "500", "600"] });
 const museo = MuseoModerno({ subsets: ["latin"], weight: ["600", "700", "800"] });
@@ -18,6 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const post = await getPublishedPost((await params).slug);
   if (!post) notFound();
+  const posts = await getPublishedPosts();
+  const postIndex = posts.findIndex((item) => item.slug === post.slug);
+  const newerPost = postIndex > 0 ? posts[postIndex - 1] : null;
+  const olderPost = postIndex >= 0 ? posts[postIndex + 1] ?? null : null;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -39,6 +45,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <p className="mt-7 max-w-2xl text-xl leading-8 text-[#5f6675]">{post.excerpt}</p>
       {post.cover_image && <Image className="mt-12 aspect-[16/8] w-full rounded-[2rem] object-cover shadow-[0_24px_60px_rgba(45,83,150,.16)]" src={post.cover_image} alt={post.cover_alt || post.title} width={1200} height={600} unoptimized />}
       <div className="mt-12 max-w-2xl space-y-7 text-lg leading-9 text-[#454b59]">{post.body.split(/\n\s*\n/).filter(Boolean).map((paragraph: string, index: number) => <p key={index}>{paragraph}</p>)}</div>
+      {(olderPost || newerPost) && <nav aria-label="Navegación entre artículos" className="mt-16 flex flex-col gap-4 border-t border-[#dce4f0] pt-8 sm:flex-row sm:items-stretch sm:justify-between">
+        {olderPost ? <Link href={`/blog/${olderPost.slug}`} className="group max-w-sm rounded-2xl border border-[#dce4f0] bg-white/70 p-5 transition hover:border-[#0037ff] hover:bg-white"><span className="text-xs font-semibold uppercase tracking-[.18em] text-[#6d7687]">← Anterior</span><span className="mt-2 block text-lg font-semibold leading-6 text-[#252a36] group-hover:text-[#0037ff]">{olderPost.title}</span></Link> : <span />}
+        {newerPost ? <Link href={`/blog/${newerPost.slug}`} className="group max-w-sm rounded-2xl border border-[#dce4f0] bg-white/70 p-5 text-right transition hover:border-[#0037ff] hover:bg-white sm:ml-auto"><span className="text-xs font-semibold uppercase tracking-[.18em] text-[#6d7687]">Siguiente →</span><span className="mt-2 block text-lg font-semibold leading-6 text-[#252a36] group-hover:text-[#0037ff]">{newerPost.title}</span></Link> : <span />}
+      </nav>}
     </article>
+    <SiteFooter />
   </main>;
 }
