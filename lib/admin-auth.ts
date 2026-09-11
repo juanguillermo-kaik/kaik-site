@@ -30,11 +30,11 @@ async function startSession(session: Omit<AdminSession, "expiresAt">) {
   (await cookies()).set(cookieName, `${payload}.${await signature(payload, currentEnv.BLOG_SESSION_SECRET)}`, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 7 });
 }
 
-export async function login(password: string) {
+export async function login(email: string, password: string) {
   const currentEnv = await env();
-  if (!currentEnv.BLOG_ADMIN_PASSWORD || !currentEnv.BLOG_SESSION_SECRET) return { ok: false, message: "Faltan los secretos de administración en Cloudflare." };
-  if (password !== currentEnv.BLOG_ADMIN_PASSWORD) return { ok: false, message: "Contraseña incorrecta." };
-  await startSession({ role: "owner", email: null, provider: "password" });
+  if (!currentEnv.BLOG_ADMIN_EMAIL || !currentEnv.BLOG_ADMIN_PASSWORD || !currentEnv.BLOG_SESSION_SECRET) return { ok: false, message: "Faltan los secretos de administración en Cloudflare." };
+  if (email.trim().toLowerCase() !== currentEnv.BLOG_ADMIN_EMAIL.trim().toLowerCase() || password !== currentEnv.BLOG_ADMIN_PASSWORD) return { ok: false, message: "Correo o contraseña incorrectos." };
+  await startSession({ role: "owner", email: currentEnv.BLOG_ADMIN_EMAIL.trim().toLowerCase(), provider: "password" });
   return { ok: true };
 }
 

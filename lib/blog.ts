@@ -15,6 +15,7 @@ declare global {
   interface CloudflareEnv {
     BLOG_DB?: D1Database;
     BLOG_ADMIN_PASSWORD?: string;
+    BLOG_ADMIN_EMAIL?: string;
     BLOG_SESSION_SECRET?: string;
     GOOGLE_CLIENT_ID?: string;
     GOOGLE_CLIENT_SECRET?: string;
