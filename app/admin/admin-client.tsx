@@ -10,7 +10,7 @@ type View = "posts" | "access";
 
 const emptyPost: Form = { title: "", slug: "", excerpt: "", body: "", category: "KAIK", cover_image: "", seo_title: "", seo_description: "", status: "draft" };
 
-export default function AdminClient({ initialAuthenticated, initialPosts, initialAdmins, canManageUsers }: { initialAuthenticated: boolean; initialPosts: Post[]; initialAdmins: AdminUser[]; canManageUsers: boolean }) {
+export default function AdminClient({ initialAuthenticated, initialPosts, initialAdmins, canManageUsers, googleError }: { initialAuthenticated: boolean; initialPosts: Post[]; initialAdmins: AdminUser[]; canManageUsers: boolean; googleError?: string }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(initialAuthenticated);
@@ -74,7 +74,7 @@ export default function AdminClient({ initialAuthenticated, initialPosts, initia
 
   async function signOut() { await fetch("/api/admin/logout", { method: "POST" }); setAuthenticated(false); setPosts([]); }
 
-  if (!authenticated) return <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} submitLogin={submitLogin} busy={busy} message={message} />;
+  if (!authenticated) return <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} submitLogin={submitLogin} busy={busy} message={message || googleError || ""} />;
 
   return <main className="min-h-screen bg-[#f6f8fc] text-[#5e6474]">
     <aside className="fixed inset-y-0 left-0 z-20 hidden w-20 border-r border-[#e0e6f0] bg-white py-7 md:flex md:flex-col md:items-center">
