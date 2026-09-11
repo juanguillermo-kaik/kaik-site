@@ -7,6 +7,7 @@ import { getPublishedPost, getPublishedPosts } from "@/lib/blog";
 import { SiteNavigation } from "@/components/site-navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { RichText } from "@/components/rich-text";
+import { ArticleEngagement } from "@/components/article-engagement";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "500", "600"] });
 const museo = MuseoModerno({ subsets: ["latin"], weight: ["600", "700", "800"] });
@@ -25,6 +26,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const postIndex = posts.findIndex((item) => item.slug === post.slug);
   const newerPost = postIndex > 0 ? posts[postIndex - 1] : null;
   const olderPost = postIndex >= 0 ? posts[postIndex + 1] ?? null : null;
+  const relatedPosts = [...posts.filter((item) => item.slug !== post.slug && item.category === post.category), ...posts.filter((item) => item.slug !== post.slug && item.category !== post.category)].slice(0, 3);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -50,6 +52,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         {olderPost ? <Link href={`/blog/${olderPost.slug}`} className="group max-w-sm rounded-2xl border border-[#dce4f0] bg-white/70 p-5 transition hover:border-[#0037ff] hover:bg-white"><span className="text-xs font-semibold uppercase tracking-[.18em] text-[#6d7687]">← Anterior</span><span className="mt-2 block text-lg font-semibold leading-6 text-[#252a36] group-hover:text-[#0037ff]">{olderPost.title}</span></Link> : <span />}
         {newerPost ? <Link href={`/blog/${newerPost.slug}`} className="group max-w-sm rounded-2xl border border-[#dce4f0] bg-white/70 p-5 text-right transition hover:border-[#0037ff] hover:bg-white sm:ml-auto"><span className="text-xs font-semibold uppercase tracking-[.18em] text-[#6d7687]">Siguiente →</span><span className="mt-2 block text-lg font-semibold leading-6 text-[#252a36] group-hover:text-[#0037ff]">{newerPost.title}</span></Link> : <span />}
       </nav>}
+      <ArticleEngagement url={`https://kaik.cl/blog/${post.slug}`} relatedPosts={relatedPosts} />
     </article>
     <SiteFooter />
   </main>;
