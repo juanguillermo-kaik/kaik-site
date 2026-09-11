@@ -29,10 +29,16 @@ export default function AdminClient({ initialAuthenticated, initialPosts, initia
 
   async function submitLogin(event: React.FormEvent) {
     event.preventDefault(); setBusy(true); setMessage("");
-    const response = await fetch("/api/admin/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ password }) });
-    const data = await response.json(); setBusy(false);
-    if (!response.ok) return setMessage(data.message || "No fue posible iniciar sesión.");
-    setAuthenticated(true); setPassword(""); await loadPosts();
+    try {
+      const response = await fetch("/api/admin/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ password }) });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) return setMessage(data.message || "No fue posible iniciar sesión. Intenta recargar la página.");
+      setAuthenticated(true); setPassword(""); await loadPosts();
+    } catch {
+      setMessage("No fue posible conectar con el administrador. Intenta recargar la página.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   function edit(post: Post) {
