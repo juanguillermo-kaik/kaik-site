@@ -96,7 +96,7 @@ export default function AdminClient({ initialAuthenticated, initialPosts, initia
 
   return <main className="min-h-screen bg-[#f6f8fc] text-[#5e6474]">
     <aside className="fixed inset-y-0 left-0 z-20 hidden w-20 border-r border-[#e0e6f0] bg-white py-7 md:flex md:flex-col md:items-center">
-      <Link href="/" className="grid h-12 w-12 place-items-center rounded-2xl bg-[#0037ff] text-lg font-black tracking-[-.18em] text-white">KÄ</Link>
+      <Link href="/admin" aria-label="Inicio del administrador" className="grid h-12 w-12 place-items-center rounded-2xl bg-[#0037ff] text-lg font-black tracking-[-.18em] text-white">KÄ</Link>
       <nav className="mt-16 flex flex-1 flex-col gap-4">
         <NavIcon label="Publicaciones" active={view === "posts"} onClick={() => setView("posts")}>▤</NavIcon>
         {canManageUsers && <NavIcon label="Accesos" active={view === "access"} onClick={() => setView("access")}>♙</NavIcon>}
