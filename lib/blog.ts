@@ -16,6 +16,8 @@ declare global {
     BLOG_DB?: D1Database;
     BLOG_ADMIN_PASSWORD?: string;
     BLOG_SESSION_SECRET?: string;
+    GOOGLE_CLIENT_ID?: string;
+    GOOGLE_CLIENT_SECRET?: string;
   }
 }
 
@@ -38,6 +40,7 @@ export type BlogPost = {
 };
 
 export type PostInput = Omit<BlogPost, "id" | "created_at" | "updated_at" | "published_at">;
+export type AdminUser = { id: number; email: string; role: "owner" | "admin"; created_at: string; created_by: string | null };
 
 const samplePosts: BlogPost[] = [
   {
@@ -113,6 +116,31 @@ export async function updatePost(id: number, input: PostInput) {
   await db.prepare(
     "UPDATE posts SET title = ?, slug = ?, excerpt = ?, body = ?, category = ?, cover_image = ?, seo_title = ?, seo_description = ?, status = ?, published_at = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
   ).bind(input.title, input.slug, input.excerpt, input.body, input.category, input.cover_image || null, input.seo_title || null, input.seo_description || null, input.status, publishedAt, id).run();
+}
+
+export async function getAdminUsers(): Promise<AdminUser[]> {
+  const db = await database();
+  if (!db) return [];
+  const result = await db.prepare("SELECT * FROM admin_users ORDER BY email ASC").all<AdminUser>();
+  return result.results as AdminUser[];
+}
+
+export async function getAdminByEmail(email: string): Promise<AdminUser | null> {
+  const db = await database();
+  if (!db) return null;
+  return (await db.prepare("SELECT * FROM admin_users WHERE email = ? LIMIT 1").bind(email.trim().toLowerCase()).first<AdminUser>()) ?? null;
+}
+
+export async function addAdminUser(email: string, createdBy: string | null) {
+  const db = await database();
+  if (!db) throw new Error("La base de datos del blog no está disponible todavía.");
+  return db.prepare("INSERT INTO admin_users (email, role, created_by) VALUES (?, 'admin', ?)").bind(email.trim().toLowerCase(), createdBy).run();
+}
+
+export async function removeAdminUser(id: number) {
+  const db = await database();
+  if (!db) throw new Error("La base de datos del blog no está disponible todavía.");
+  await db.prepare("DELETE FROM admin_users WHERE id = ? AND role = 'admin'").bind(id).run();
 }
 
 export function toSlug(value: string) {
