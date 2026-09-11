@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { isAdmin } from "@/lib/admin-auth";
 import { toSlug, updatePost, type PostInput } from "@/lib/blog";
 
-export const runtime = "edge";
-
 function normalize(value: unknown): PostInput | null {
   if (!value || typeof value !== "object") return null;
   const input = value as Record<string, unknown>;

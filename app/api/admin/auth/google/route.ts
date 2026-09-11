@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { cookies } from "next/headers";
-export const runtime = "edge";
 export async function GET(request: Request) {
   const env = (await getCloudflareContext({ async: true })).env;
   if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) return NextResponse.redirect(new URL("/admin?error=google-not-configured", request.url));

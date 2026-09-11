@@ -3,7 +3,6 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { cookies } from "next/headers";
 import { getAdminByEmail } from "@/lib/blog";
 import { loginGoogle } from "@/lib/admin-auth";
-export const runtime = "edge";
 export async function GET(request: Request) {
   const url = new URL(request.url); const code = url.searchParams.get("code"); const state = url.searchParams.get("state"); const stateCookie = (await cookies()).get("kaik_google_state")?.value; (await cookies()).delete("kaik_google_state");
   if (!code || !state || state !== stateCookie) return NextResponse.redirect(new URL("/admin?error=google-state", request.url));

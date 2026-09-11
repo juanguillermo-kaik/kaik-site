@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { getAdminSession, isOwner } from "@/lib/admin-auth";
 import { addAdminUser, getAdminUsers, removeAdminUser } from "@/lib/blog";
 
-export const runtime = "edge";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function GET() { if (!await isOwner()) return NextResponse.json({ message: "Solo el propietario puede gestionar accesos." }, { status: 403 }); return NextResponse.json(await getAdminUsers()); }
