@@ -7,7 +7,18 @@ export type AdminSession = { expiresAt: number; role: "owner" | "admin"; email: 
 
 function base64url(bytes: Uint8Array) { let value = ""; for (const byte of bytes) value += String.fromCharCode(byte); return btoa(value).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
 function fromBase64url(value: string) { const padded = value.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - value.length % 4) % 4); return Uint8Array.from(atob(padded), (char) => char.charCodeAt(0)); }
-async function env() { return (await getCloudflareContext({ async: true })).env; }
+async function env() {
+  const bindings = (await getCloudflareContext({ async: true })).env;
+  if (process.env.NODE_ENV !== "development") return bindings;
+
+  // Next dev does not consistently expose .dev.vars through the platform proxy.
+  return {
+    ...bindings,
+    BLOG_ADMIN_EMAIL: bindings.BLOG_ADMIN_EMAIL ?? process.env.BLOG_ADMIN_EMAIL,
+    BLOG_ADMIN_PASSWORD: bindings.BLOG_ADMIN_PASSWORD ?? process.env.BLOG_ADMIN_PASSWORD,
+    BLOG_SESSION_SECRET: bindings.BLOG_SESSION_SECRET ?? process.env.BLOG_SESSION_SECRET,
+  };
+}
 async function signature(value: string, keyValue: string) { const key = await crypto.subtle.importKey("raw", encoder.encode(keyValue), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]); return base64url(new Uint8Array(await crypto.subtle.sign("HMAC", key, encoder.encode(value)))); }
 
 export async function getAdminSession(): Promise<AdminSession | null> {

@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
+import { getPublishedPosts } from "@/lib/blog";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getPublishedPosts();
   return [
     {
       url: "https://kaik.cl",
@@ -14,5 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...posts.map((post) => ({
+      url: `https://kaik.cl/blog/${post.slug}`,
+      lastModified: new Date(post.updated_at),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

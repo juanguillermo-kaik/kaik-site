@@ -31,7 +31,10 @@ export type BlogPost = {
   excerpt: string;
   body: string;
   category: string;
+  author: string;
   cover_image: string | null;
+  cover_alt: string | null;
+  og_image: string | null;
   seo_title: string | null;
   seo_description: string | null;
   status: PostStatus;
@@ -51,7 +54,10 @@ const samplePosts: BlogPost[] = [
     excerpt: "Las mejores experiencias de marca ocurren cuando la creatividad y la tecnología trabajan como un mismo sistema.",
     body: "Las marcas no viven solo en una campaña ni en una plataforma. Viven en cada interacción con sus equipos, clientes y audiencias.\n\nCuando comunicación y tecnología se diseñan juntas, las ideas llegan más lejos: se vuelven consistentes, medibles y útiles para las personas.",
     category: "Estrategia",
+    author: "KAIK",
     cover_image: null,
+    cover_alt: null,
+    og_image: null,
     seo_title: null,
     seo_description: null,
     status: "published",
@@ -104,8 +110,8 @@ export async function createPost(input: PostInput) {
   if (!db) throw new Error("La base de datos del blog no está disponible todavía.");
   const publishedAt = input.status === "published" ? new Date().toISOString() : null;
   const result = await db.prepare(
-    "INSERT INTO posts (title, slug, excerpt, body, category, cover_image, seo_title, seo_description, status, published_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
-  ).bind(input.title, input.slug, input.excerpt, input.body, input.category, input.cover_image || null, input.seo_title || null, input.seo_description || null, input.status, publishedAt).run();
+    "INSERT INTO posts (title, slug, excerpt, body, category, author, cover_image, cover_alt, og_image, seo_title, seo_description, status, published_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
+  ).bind(input.title, input.slug, input.excerpt, input.body, input.category, input.author || "KAIK", input.cover_image || null, input.cover_alt || null, input.og_image || null, input.seo_title || null, input.seo_description || null, input.status, publishedAt).run();
   return result.meta.last_row_id;
 }
 
@@ -115,8 +121,8 @@ export async function updatePost(id: number, input: PostInput) {
   const current = await db.prepare("SELECT published_at FROM posts WHERE id = ?").bind(id).first<{ published_at: string | null }>();
   const publishedAt = input.status === "published" ? current?.published_at ?? new Date().toISOString() : null;
   await db.prepare(
-    "UPDATE posts SET title = ?, slug = ?, excerpt = ?, body = ?, category = ?, cover_image = ?, seo_title = ?, seo_description = ?, status = ?, published_at = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-  ).bind(input.title, input.slug, input.excerpt, input.body, input.category, input.cover_image || null, input.seo_title || null, input.seo_description || null, input.status, publishedAt, id).run();
+    "UPDATE posts SET title = ?, slug = ?, excerpt = ?, body = ?, category = ?, author = ?, cover_image = ?, cover_alt = ?, og_image = ?, seo_title = ?, seo_description = ?, status = ?, published_at = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
+  ).bind(input.title, input.slug, input.excerpt, input.body, input.category, input.author || "KAIK", input.cover_image || null, input.cover_alt || null, input.og_image || null, input.seo_title || null, input.seo_description || null, input.status, publishedAt, id).run();
 }
 
 export async function getAdminUsers(): Promise<AdminUser[]> {
