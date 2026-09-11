@@ -39,7 +39,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   };
   return <main className={`min-h-screen bg-[linear-gradient(140deg,#eff6ff,#fff_54%,#edf5ff)] text-[#20222d] ${archivo.className}`}>
     <SiteNavigation article />
-    <article className="mx-auto max-w-4xl px-7 pb-24 pt-14 md:px-10 md:pt-24">
+    <article className="mx-auto max-w-7xl px-7 pb-24 pt-14 md:px-10 md:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <p className="text-xs font-semibold uppercase tracking-[.28em] text-[#0037ff]">{post.category}</p>
       <h1 className={`mt-5 max-w-3xl text-[clamp(3.2rem,7vw,6.2rem)] font-bold leading-[.88] tracking-[-.07em] ${museo.className}`}>{post.title}</h1>

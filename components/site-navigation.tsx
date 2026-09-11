@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function SiteNavigation({ article = false }: { article?: boolean }) {
-  return <header className={`mx-auto flex items-center justify-between px-7 py-7 md:px-10 ${article ? "max-w-4xl" : "max-w-7xl"}`}>
+  return <header className="mx-auto flex max-w-7xl items-center justify-between px-7 py-7 md:px-10">
     <Link href="/" aria-label="KAIK, inicio">
       <Image src="/logo-kaik.svg" alt="KAIK" width={106} height={34} className="h-8 w-auto [filter:brightness(0)_saturate(100%)_invert(13%)_sepia(14%)_saturate(643%)_hue-rotate(191deg)_brightness(95%)_contrast(92%)]" priority />
     </Link>
